@@ -732,7 +732,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 550103818}
   m_HandleRect: {fileID: 1587631701}
   m_Direction: 0
-  m_MinValue: 5
+  m_MinValue: 0
   m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 50
@@ -1704,6 +1704,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &997750767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997750768}
+  - component: {fileID: 997750769}
+  m_Layer: 0
+  m_Name: Freq_Waves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997750768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997750767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1764388752}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997750769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997750767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8371294024194025a4b76d069329a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doppler_WaveEmitter
+  WavePrefab: {fileID: 6080555554295001730, guid: 888bf36dddb964fc9becae89af38bdca, type: 3}
+  PeriodTime: 0.2
 --- !u!1 &1010919966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764388752}
   - component: {fileID: 1764388751}
+  - component: {fileID: 1764388753}
   m_Layer: 0
   m_Name: Source
   m_TagString: Untagged
@@ -2482,12 +2529,26 @@ Transform:
   m_GameObject: {fileID: 1764388750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.964, y: 0, z: 0}
+  m_LocalPosition: {x: -7.964, y: 0, z: -5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 997750768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764388753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764388750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d7a9ca413c84f19a849c7282cac6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doppler_Source
+  Velocity_Source: 2
 --- !u!1 &1784339877
 GameObject:
   m_ObjectHideFlags: 0
