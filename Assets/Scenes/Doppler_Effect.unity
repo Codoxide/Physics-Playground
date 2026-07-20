@@ -208,7 +208,19 @@ MonoBehaviour:
   m_Value: 356
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 775538789}
+        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
+        m_MethodName: SpeedSound_SlideChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &29999712
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -443,7 +455,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 222936532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 775538789}
+        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
+        m_MethodName: ResetButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &222936532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,8 +667,8 @@ Transform:
   m_GameObject: {fileID: 283490004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -738,7 +762,19 @@ MonoBehaviour:
   m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 775538789}
+        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
+        m_MethodName: SourceVelocity_SlideChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &402830421
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -821,7 +857,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 402830424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 775538789}
+        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
+        m_MethodName: StartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &402830424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1566,37 @@ RectTransform:
   m_AnchoredPosition: {x: -5.000004, y: 0}
   m_SizeDelta: {x: -20.000008, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &737100880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737100881}
+  m_Layer: 0
+  m_Name: Source_Reset_Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737100881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737100880}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.964, y: 0, z: -5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766163090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1688,7 @@ GameObject:
   - component: {fileID: 775538787}
   - component: {fileID: 775538786}
   - component: {fileID: 775538785}
+  - component: {fileID: 775538789}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1704,6 +1784,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &775538789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775538784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40264bd47d904a9f8a7075bba917d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Doppler_GameUI
+  doppler_SourceScript: {fileID: 1764388753}
+  sourceTransform: {fileID: 1764388752}
+  source_Reset_Position: {fileID: 737100881}
+  Source_Velocity_Slider: {fileID: 388909612}
+  Source_Freq_Slider: {fileID: 1205595339}
+  SpeedSound_Slider: {fileID: 13250504}
+  Freq_Text: {fileID: 577925521}
+  Vel_Text: {fileID: 1843055566}
+  SpeedSound_Text: {fileID: 766163092}
+  Max_PeriodTime: 0.25
+  Max_Velocity: 6
 --- !u!1 &997750767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Doppler_WaveEmitter
   WavePrefab: {fileID: 6080555554295001730, guid: 888bf36dddb964fc9becae89af38bdca, type: 3}
   PeriodTime: 0.2
+  isPausedEmitting: 1
 --- !u!1 &1010919966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2134,19 @@ MonoBehaviour:
   m_Value: 400
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 775538789}
+        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
+        m_MethodName: FreqSlideChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1225131649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,7 +2664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d7a9ca413c84f19a849c7282cac6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Doppler_Source
-  Velocity_Source: 2
+  Velocity_Source: 5
+  doppler_WaveEmitterScript: {fileID: 997750769}
+  isPaused: 1
 --- !u!1 &1784339877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,6 +2826,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 283490006}
+  - {fileID: 737100881}
   - {fileID: 1764388752}
   - {fileID: 775538788}
   - {fileID: 29999715}
