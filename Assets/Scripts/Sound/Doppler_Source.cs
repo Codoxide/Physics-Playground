@@ -22,8 +22,7 @@ public class Doppler_Source : MonoBehaviour
         }
         else
         {
-            doppler_WaveEmitterScript.isPausedEmitting = true;
-            
+            doppler_WaveEmitterScript.isPausedEmitting = true;   
         }
     }
     public void ChangeFreq(float periodTime)
