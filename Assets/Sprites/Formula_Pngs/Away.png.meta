@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: a24604f2ad7a54ae99440fdd2601159d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8548605893349860298
+    second: Away_0
+  - first:
+      213: 2208509674357949196
+    second: Away_1
+  - first:
+      213: -4080626531337225906
+    second: Away_2
+  - first:
+      213: 5916631976519786914
+    second: Away_3
+  - first:
+      213: 1587908561950526682
+    second: Away_4
+  - first:
+      213: -7192148643811205221
+    second: Away_5
+  - first:
+      213: 8677181566190489062
+    second: Away_6
+  - first:
+      213: 920095669825623422
+    second: Away_7
+  - first:
+      213: -6993285946377451807
+    second: Away_8
+  - first:
+      213: 7390992772774309068
+    second: Away_9
+  - first:
+      213: -963114180222004685
+    second: Away_10
+  - first:
+      213: 4514897624953003166
+    second: Away_11
+  - first:
+      213: 653524462769578050
+    second: Away_12
+  - first:
+      213: 2269979835470499619
+    second: Away_13
+  - first:
+      213: 1949868989608635468
+    second: Away_14
+  - first:
+      213: 4890769545601743958
+    second: Away_15
+  - first:
+      213: 9074297646989853927
+    second: Away_16
+  - first:
+      213: -6012297683041817376
+    second: Away_17
+  - first:
+      213: 1024473260286176484
+    second: Away_18
+  - first:
+      213: 2565161614456905580
+    second: Away_19
+  - first:
+      213: 8431942750694308994
+    second: Away_20
+  - first:
+      213: 8869013847850338341
+    second: Away_21
+  - first:
+      213: 6820091215309497480
+    second: Away_22
+  - first:
+      213: 7106717406341826867
+    second: Away_23
+  - first:
+      213: 3355165423880942217
+    second: Away_24
+  - first:
+      213: 3401161334752130171
+    second: Away_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Away_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3eded74cfb2a670800000000000000
+      internalID: 8548605893349860298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_1
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 170
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c038e1ff8d336ae10800000000000000
+      internalID: 2208509674357949196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_2
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 0
+        width: 92
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e493c923ac3be57c0800000000000000
+      internalID: -4080626531337225906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_3
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 291
+        width: 81
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1ed2b5f691c1250800000000000000
+      internalID: 5916631976519786914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_4
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 0
+        width: 91
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcccda8c62690610800000000000000
+      internalID: 1587908561950526682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_5
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 142
+        width: 66
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f53d10aea503c90800000000000000
+      internalID: -7192148643811205221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_6
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 229
+        width: 121
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed0a5829aa8b6870800000000000000
+      internalID: 8677181566190489062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_7
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 212
+        width: 466
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75d4570326d4cc00800000000000000
+      internalID: 920095669825623422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 142
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6c079db7bd2fe90800000000000000
+      internalID: -6993285946377451807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_9
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 142
+        width: 45
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc21b684c4129660800000000000000
+      internalID: 7390992772774309068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_10
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 142
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332d9b181c452a2f0800000000000000
+      internalID: -963114180222004685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 143
+        width: 45
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c149c087328ae30800000000000000
+      internalID: 4514897624953003166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_12
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 142
+        width: 65
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240a86f4909c11900800000000000000
+      internalID: 653524462769578050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_13
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 142
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32fc48c22a6908f10800000000000000
+      internalID: 2269979835470499619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_14
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 143
+        width: 45
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c2c24e3835f0b10800000000000000
+      internalID: 1949868989608635468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_15
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 195
+        width: 121
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cf3e34df08fd340800000000000000
+      internalID: 4890769545601743958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_16
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 142
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e44efad1a16eed70800000000000000
+      internalID: 9074297646989853927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_17
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 142
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec636e9c17009ca0800000000000000
+      internalID: -6012297683041817376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_18
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 142
+        width: 66
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec6e399009a73e00800000000000000
+      internalID: 1024473260286176484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_19
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 143
+        width: 45
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6fdb25c5e8499320800000000000000
+      internalID: 2565161614456905580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_20
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 142
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c7095e147440570800000000000000
+      internalID: 8431942750694308994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_21
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 142
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528c325ca11151b70800000000000000
+      internalID: 8869013847850338341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_22
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 44
+        width: 80
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884e84073d4d5ae50800000000000000
+      internalID: 6820091215309497480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_23
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 32
+        width: 121
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339071cf3d120a260800000000000000
+      internalID: 7106717406341826867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_24
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 44
+        width: 81
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 982b8153d21ff8e20800000000000000
+      internalID: 3355165423880942217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Away_25
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 18
+        width: 49
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74b1bdb63a533f20800000000000000
+      internalID: 3401161334752130171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Away_0: 8548605893349860298
+      Away_1: 2208509674357949196
+      Away_10: -963114180222004685
+      Away_11: 4514897624953003166
+      Away_12: 653524462769578050
+      Away_13: 2269979835470499619
+      Away_14: 1949868989608635468
+      Away_15: 4890769545601743958
+      Away_16: 9074297646989853927
+      Away_17: -6012297683041817376
+      Away_18: 1024473260286176484
+      Away_19: 2565161614456905580
+      Away_2: -4080626531337225906
+      Away_20: 8431942750694308994
+      Away_21: 8869013847850338341
+      Away_22: 6820091215309497480
+      Away_23: 7106717406341826867
+      Away_24: 3355165423880942217
+      Away_25: 3401161334752130171
+      Away_3: 5916631976519786914
+      Away_4: 1587908561950526682
+      Away_5: -7192148643811205221
+      Away_6: 8677181566190489062
+      Away_7: 920095669825623422
+      Away_8: -6993285946377451807
+      Away_9: 7390992772774309068
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

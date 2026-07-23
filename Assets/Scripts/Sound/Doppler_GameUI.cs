@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,9 @@ public class Doppler_GameUI : MonoBehaviour
 
     public Slider SpeedSound_Slider; //Speed of Sound Slider slider
 
+    public GameObject panelExplain;
+
+    public GameObject Scroll_Content;
 
     public Text Freq_Text; 
     public Text Vel_Text; 
@@ -122,5 +126,21 @@ public class Doppler_GameUI : MonoBehaviour
         ResetButton();
     }    
 
+    public void ExitOutOfSimulation()
+    {
+        
+    }
+
+    public void OpenPanel()
+    {
+        ResetButton();
+        panelExplain.SetActive(true);
+    }
+    public void ClosePanel()
+    {
+        Scroll_Content.transform.position = new Vector3(0,0,0);
+        ResetButton();
+        panelExplain.SetActive(false);
+    }
 }
 
