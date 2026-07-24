@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using Mono.Cecil.Cil;
+using Unity.Burst.Intrinsics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,19 +16,28 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
     public float Amplitude = 5;
     public GameObject circle;
     public float K_Value = 3;
+    public float PhaseShift = 3;
+
     float PeriodAngle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        UpdateHarmonicWave();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            UpdateHarmonicWave();
+        }
     }
-    void UpdateHarmonicWave()
+    public void ShrinkHarmonic(float sliderVal)
+    {
+        spriteMask.localPosition = new Vector3(-7*(1-sliderVal), spriteMask.localPosition.y, spriteMask.localPosition.z);
+    }
+    public void UpdateHarmonicWave()
     {
         length = 14.2f+spriteMask.transform.position.x; // Update the length of the wave to match the air columm's length
         PeriodAngle = 360/K_Value; // Convert the k value, horizontal stretch/compression, to a angle
@@ -41,7 +52,7 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
             float percent = (float)i / NumOfPoints; // Some Math
 
             float x = transform.position.x + (percent*length); //
-            float y = Mathf.Sin(percent*PeriodAngle*Mathf.Deg2Rad)*Amplitude;//
+            float y = transform.position.y+(Mathf.Sin(percent*PeriodAngle*Mathf.Deg2Rad)*Amplitude);//
             
             lineRend1.SetPosition(i, new Vector3(x,y,0f)); // Plug our points into the line render so it connects all those points, the more points, the smoother it will look
         }

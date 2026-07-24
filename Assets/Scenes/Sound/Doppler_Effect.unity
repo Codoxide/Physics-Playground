@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 319
   m_MaxValue: 356
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 343
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1699,8 +1699,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 300
-  m_WholeNumbers: 0
-  m_Value: 150
+  m_WholeNumbers: 1
+  m_Value: 300
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4273,8 +4273,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 15
   m_MaxValue: 400
-  m_WholeNumbers: 0
-  m_Value: 203
+  m_WholeNumbers: 1
+  m_Value: 343
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
