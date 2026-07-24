@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c2d18e42edaab4c9caa9db2bb60d80d3
+guid: 453c3d03a4c4f4c1a81c88e921f07bd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1684720181362987869
-    second: AirCollumn_OPEN_0
-  - first:
-      213: -2295360256660404596
-    second: AirCollumn_OPEN_1
+      213: 8174992282927982503
+    second: OpenClose2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AirCollumn_OPEN_0
+      name: OpenClose2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 509
-        width: 1000
-        height: 49
+        y: 0
+        width: 956
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5392143414516710800000000000000
-      internalID: 1684720181362987869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AirCollumn_OPEN_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 334
-        width: 1000
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c860536020e3520e0800000000000000
-      internalID: -2295360256660404596
+      spriteID: 7a76b791b28637170800000000000000
+      internalID: 8174992282927982503
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AirCollumn_OPEN_0: 1684720181362987869
-      AirCollumn_OPEN_1: -2295360256660404596
+      OpenClose2_0: 8174992282927982503
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

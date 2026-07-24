@@ -6,8 +6,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum AirColumnType
+{
+    OpenOpen,
+    ClosedClosed,
+    OpenClosed
+}
 public class AirColumn_HarmonicMaker : MonoBehaviour
 {
+    public AirColumnType current_airColumnType = AirColumnType.OpenClosed;
     public LineRenderer lineRend1;
     public LineRenderer lineRend2;
     public Transform spriteMask;
@@ -17,7 +24,6 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
     public GameObject circle;
     public float K_Value = 3;
     public float PhaseShift = 3;
-
     float PeriodAngle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,18 +34,15 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            UpdateHarmonicWave();
-        }
+
     }
     public void ShrinkHarmonic(float sliderVal)
     {
-        spriteMask.localPosition = new Vector3(-7*(1-sliderVal), spriteMask.localPosition.y, spriteMask.localPosition.z);
+        spriteMask.localPosition = new Vector3(-0.3285f+(-7*(1-sliderVal)), spriteMask.localPosition.y, spriteMask.localPosition.z);
     }
     public void UpdateHarmonicWave()
     {
-        length = 14.2f+spriteMask.transform.position.x; // Update the length of the wave to match the air columm's length
+        length = 14.05f+spriteMask.transform.position.x; // Update the length of the wave to match the air columm's length
         PeriodAngle = 360/K_Value; // Convert the k value, horizontal stretch/compression, to a angle
         DrawHalfOne(); // Draw the first sine wave
         DrawHalfTwo(); // Draw the second flipped sine wave
@@ -51,10 +54,10 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
         {
             float percent = (float)i / NumOfPoints; // Some Math
 
-            float x = transform.position.x + (percent*length); //
-            float y = transform.position.y+(Mathf.Sin(percent*PeriodAngle*Mathf.Deg2Rad)*Amplitude);//
+            float x = (percent*length); //
+            float y = Mathf.Sin((percent*PeriodAngle-PhaseShift)*Mathf.Deg2Rad)*Amplitude;//
             
-            lineRend1.SetPosition(i, new Vector3(x,y,0f)); // Plug our points into the line render so it connects all those points, the more points, the smoother it will look
+            lineRend1.SetPosition(i, new Vector3(transform.position.x+x,transform.position.y+y,0)); // Plug our points into the line render so it connects all those points, the more points, the smoother it will look
         }
     }
     void DrawHalfTwo()
@@ -65,9 +68,9 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
         {
             float percent = (float)i / NumOfPoints;
 
-            float x = transform.position.x + (percent*length);
-            float y = Mathf.Sin(percent*PeriodAngle*Mathf.Deg2Rad)*-Amplitude; // This makes the sine flipped
-            lineRend2.SetPosition(i, new Vector3(x,y,0f));
+            float x = (percent*length);
+            float y = Mathf.Sin((percent*PeriodAngle-PhaseShift)*Mathf.Deg2Rad)*-Amplitude; // This makes the sine flipped
+            lineRend2.SetPosition(i, new Vector3(transform.position.x+x,transform.position.y+y,0)); // Plug our points into the line render so it connects all those points, the more points, the smoother it will look
         }
     }    
 }
