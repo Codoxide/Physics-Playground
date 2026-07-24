@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class AirColumn_GameUI : MonoBehaviour
     public Text LengthText;
     public Text TemperatureText;
     public Text HarmonicText;
+    public Text FrequencyEmittedText;
 
 
     public Slider LengthSlider;
@@ -51,6 +53,8 @@ public class AirColumn_GameUI : MonoBehaviour
 
         airColumn_HarmonicMakerScript.ShrinkHarmonic(LengthSlider.normalizedValue);
         airColumn_HarmonicMakerScript.UpdateHarmonicWave();
+        CalculateEmittedFrequency();
+
     }
 
     public void TemperatureSlider_SliderChange()
@@ -59,6 +63,8 @@ public class AirColumn_GameUI : MonoBehaviour
 
         float t = Mathf.InverseLerp(0f, 40f, TemperatureSlider.value);
         Camera.main.backgroundColor = Color.Lerp(coldColor, hotColor, t);
+        CalculateEmittedFrequency();
+
     }    
 
     public void HarmonicSlider_SliderChange()
@@ -86,7 +92,30 @@ public class AirColumn_GameUI : MonoBehaviour
             airColumn_HarmonicMakerScript.PhaseShift = 0;
         }
         airColumn_HarmonicMakerScript.UpdateHarmonicWave();
+        CalculateEmittedFrequency();
     }    
+
+    public void CalculateEmittedFrequency()
+    {
+        float speedOfSound = 331.4f+(0.606f*TemperatureSlider.value);
+        float WaveLength;
+        float length_AirColumn_2Meters = LengthSlider.value/100;
+        if(airColumn_HarmonicMakerScript.current_airColumnType == AirColumnType.OpenClosed)
+        {
+
+            WaveLength = (4*length_AirColumn_2Meters)/(2*HarmonicSlider.value-1);
+        }
+        else
+        {
+            WaveLength = (4*length_AirColumn_2Meters)/(2*HarmonicSlider.value);        
+        }
+        float Frequency = speedOfSound/WaveLength;
+        string formatted_Freq = Mathf.Round(Frequency).ToString("N0");
+
+        FrequencyEmittedText.text = "Frequency: "+formatted_Freq+ " Hz";
+
+
+    }
 
     public void OpenOpenFunc()
     {

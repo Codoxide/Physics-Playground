@@ -3514,6 +3514,7 @@ MonoBehaviour:
   LengthText: {fileID: 787634024}
   TemperatureText: {fileID: 626099089}
   HarmonicText: {fileID: 2050650489}
+  FrequencyEmittedText: {fileID: 1404075016}
   LengthSlider: {fileID: 1191159667}
   TemperatureSlider: {fileID: 582364265}
   HarmonicSlider: {fileID: 1339641306}
@@ -5437,7 +5438,7 @@ GameObject:
   - component: {fileID: 1404075017}
   - component: {fileID: 1404075016}
   m_Layer: 5
-  m_Name: Freq_Emitted
+  m_Name: Freq_Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5495,7 +5496,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Frequency Emitted: 445 Hz'
+  m_Text: 'Frequency: 445 Hz'
 --- !u!222 &1404075017
 CanvasRenderer:
   m_ObjectHideFlags: 0
