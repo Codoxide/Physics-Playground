@@ -24,31 +24,46 @@ public class AirColumn_GameUI : MonoBehaviour
     public Toggle OpenOpen_Toggle;
     public Toggle CloseClose_Toggle;
     public Toggle CloseOpen_Toggle;
+    
+    Color coldColor  = new Color(0.5803921569f, 0.7254901961f, 1f); // Icy blue
+
+    Color hotColor  = new Color(0.8431f, 0.5568627451f, 0.5568627451f); // Warm light red
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LengthSlider_SliderChange();
         HarmonicSlider_SliderChange();
+        TemperatureSlider_SliderChange();
     }
 
     // Update is called once per frame
     void Update()
     {
-        LengthText.text = "Air Column Length: "+LengthSlider.value+" cm";
-        TemperatureText.text = "Air Temperature: "+TemperatureSlider.value+"ºC";
 
-        HarmonicText.text = "Harmonic Number: "+HarmonicSlider.value;
-
+        
     }
+
 
     public void LengthSlider_SliderChange()
     {
+        LengthText.text = "Air Column Length: "+LengthSlider.value+" cm";
+
         airColumn_HarmonicMakerScript.ShrinkHarmonic(LengthSlider.normalizedValue);
         airColumn_HarmonicMakerScript.UpdateHarmonicWave();
     }
 
+    public void TemperatureSlider_SliderChange()
+    {
+        TemperatureText.text = "Air Temperature: "+TemperatureSlider.value+"ºC";
+
+        float t = Mathf.InverseLerp(0f, 40f, TemperatureSlider.value);
+        Camera.main.backgroundColor = Color.Lerp(coldColor, hotColor, t);
+    }    
+
     public void HarmonicSlider_SliderChange()
     {
+        HarmonicText.text = "Harmonic Number: "+HarmonicSlider.value;
         if(airColumn_HarmonicMakerScript.current_airColumnType == AirColumnType.OpenClosed)
         {
             airColumn_OBJ.GetComponent<SpriteRenderer>().sprite = OpenClose_Sprite;
