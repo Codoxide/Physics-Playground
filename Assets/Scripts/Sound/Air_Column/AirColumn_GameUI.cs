@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class AirColumn_GameUI : MonoBehaviour
 {
     public AirColumn_HarmonicMaker airColumn_HarmonicMakerScript;
+
     public GameObject airColumn_OBJ;
     public GameObject airColumnWall_OBJ;
+    public GameObject panelExplain;
+
+    public Transform Scroll_Content;
 
 
     public Sprite Open2_Sprite;
@@ -136,4 +140,15 @@ public class AirColumn_GameUI : MonoBehaviour
         airColumn_HarmonicMakerScript.current_airColumnType = AirColumnType.OpenClosed;
         HarmonicSlider_SliderChange();
     }        
+
+    public void OpenPanel()
+    {
+        panelExplain.SetActive(true);
+    }
+    public void ClosePanel()
+    {
+        Scroll_Content.transform.position = new Vector3(0,0,0);
+        panelExplain.SetActive(false);
+    }
+
 }
