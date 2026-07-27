@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 3
   tags:
   - Wave
+  - Platform
+  - PathPoint
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
