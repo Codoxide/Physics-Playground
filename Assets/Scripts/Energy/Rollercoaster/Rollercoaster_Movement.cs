@@ -39,6 +39,7 @@ public class Rollercoaster_Movement : MonoBehaviour
         {
             speed = returnSpeed();            
         }
+        Debug.Log(CheckDistanceThis());
         
 
     }
@@ -51,7 +52,6 @@ public class Rollercoaster_Movement : MonoBehaviour
             float distance = Vector2.Distance(StartingPoint, CurrentPoint);
             Vector2 direction = (Vector2)points[i].transform.position - CurrentPoint;
             float angleDegrees = Mathf.Atan2(direction.y, direction.x);
-
             float velocitySquared = ((2*GravityForce)*(CheckDistanceBefore()-CheckDistanceThis()))-(2*Coefficient_Friction*Mathf.Cos(angleDegrees)*GravityForce*distance); 
             if(velocitySquared < 0)
             {
@@ -79,7 +79,14 @@ public class Rollercoaster_Movement : MonoBehaviour
 
         if (hit.collider != null&&hit.collider.CompareTag("Ground"))
         {
-            return hit.distance;
+            if((float)Math.Round(hit.distance, 2)-0.5f < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return (float)Math.Round(hit.distance, 2)-0.5f;
+            }
         }
         else
         {
