@@ -1,77 +1,70 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+using UnityEditor.Build;
+using UnityEditor.Media;
 using UnityEngine;
 
 public class Rollercoaster_Movement : MonoBehaviour
 {
-
-    bool moving = false;
+    public bool PauseState = true;
     public float speed = 0f;
     public float GravityForce = 9.8f;
-    public float Coefficient_Friction = 0.63f;
-    int i =0;
     float maxDistance;
     public GameObject[] points;
-    Vector2 StartingPoint;
-    Vector2 CurrentPoint;
-    public float launchAcceleration = 2;
-    float launchTimer;
+    public float launchSpeedAccelearion = 2f;
+    float launchSpeed=0f;
 
     void Start()
     {
-        StartingPoint = transform.position;
         maxDistance = CheckDistanceThis();        
 
         StartCoroutine(MoveThroughPoints());
     }
     void Update()
     {
-        if (launchTimer < 1f)
+        if(!PauseState)
         {
-            speed += launchAcceleration * Time.deltaTime;
-            launchTimer += Time.deltaTime;
-        }
-        else
-        {
-            speed = returnSpeed();            
-        }
-        Debug.Log(CheckDistanceThis());
-        
-
+            AddSpeed();
+        }               
     }
-
-    float returnSpeed()
+    void AddSpeed()
     {
-        if(i <= points.Length-1)
+        if(launchSpeed <= .1)
         {
-            CurrentPoint = transform.position;
-            float distance = Vector2.Distance(StartingPoint, CurrentPoint);
-            Vector2 direction = (Vector2)points[i].transform.position - CurrentPoint;
-            float angleDegrees = Mathf.Atan2(direction.y, direction.x);
-            float velocitySquared = ((2*GravityForce)*(CheckDistanceBefore()-CheckDistanceThis()))-(2*Coefficient_Friction*Mathf.Cos(angleDegrees)*GravityForce*distance); 
-            if(velocitySquared < 0)
-            {
-                velocitySquared = 0;
-            }
-            else
-            {
-                velocitySquared = ((2*GravityForce)*(CheckDistanceBefore()-CheckDistanceThis()))-(2*Coefficient_Friction*Mathf.Cos(angleDegrees)*GravityForce*distance); 
-                
-            }
-            return Mathf.Sqrt(velocitySquared);            
+            launchSpeed += Time.deltaTime;
+            speed += launchSpeedAccelearion * Time.deltaTime;
         }
         else
         {
-            return 0;
-        }
-     
+            speed = returnSpeed();
+        }           
     }
 
-    float CheckDistanceThis()
+    public float TotalEnergy(float mass)
+    {
+        return mass*CheckDistanceBefore()*GravityForce;
+    }
+
+    public float KineticEnergy(float mass)
+    {
+        return (0.5f)*(speed*speed)*mass;
+    }
+    public float PotentialEnergy(float mass)
+    {
+        return mass*CheckDistanceThis()*GravityForce;
+    }    
+
+
+    public float returnSpeed()
+    {
+
+        float KineticEnergy = (CheckDistanceBefore()*GravityForce)-(CheckDistanceThis()*GravityForce);
+        float velocitySquared =2*KineticEnergy;
+        return Mathf.Sqrt(velocitySquared);
+    }
+
+
+    public float CheckDistanceThis()
     {
         int layerMask = 1 << 3;
 
@@ -108,17 +101,29 @@ public class Rollercoaster_Movement : MonoBehaviour
         {
             while(Vector3.Distance(transform.position, point.transform.position) > 0.01f)
             {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    point.transform.position,
-                    speed * Time.deltaTime
-                );
+                if(PauseState == false)
+                {
+                    transform.position = Vector3.MoveTowards(
+                        transform.position,
+                        point.transform.position,
+                        speed * Time.deltaTime
+                    );                    
+                }
+
 
                 yield return null;
             }
-            i++;
         }
     }
 
+    public void ResetScript()
+    {
+        speed = 0;
+        launchSpeed = 0;
+        PauseState = true;
+        StopAllCoroutines();
+        StartCoroutine(MoveThroughPoints());
 
+
+    }
 }
