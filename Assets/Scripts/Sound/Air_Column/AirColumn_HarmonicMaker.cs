@@ -42,7 +42,7 @@ public class AirColumn_HarmonicMaker : MonoBehaviour
     }
     public void UpdateHarmonicWave()
     {
-        length = 14.05f+spriteMask.transform.position.x; // Update the length of the wave to match the air columm's length
+        length = 14.55f+spriteMask.transform.position.x; // Update the length of the wave to match the air columm's length
         PeriodAngle = 360/K_Value; // Convert the k value, horizontal stretch/compression, to a angle
         DrawHalfOne(); // Draw the first sine wave
         DrawHalfTwo(); // Draw the second flipped sine wave

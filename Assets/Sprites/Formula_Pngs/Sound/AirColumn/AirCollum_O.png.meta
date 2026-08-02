@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 453c3d03a4c4f4c1a81c88e921f07bd2
+guid: ecb46d5cc2e3c49e69f8fc38ef617d64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8174992282927982503
-    second: OpenClose2_0
+      213: 5827192208080020603
+    second: AirCollum_O_0
+  - first:
+      213: -7215751246788301588
+    second: AirCollum_O_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenClose2_0
+      name: AirCollum_O_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 956
-        height: 220
+        x: 18
+        y: 199
+        width: 964
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a76b791b28637170800000000000000
-      internalID: 8174992282927982503
+      spriteID: b74a88080785ed050800000000000000
+      internalID: 5827192208080020603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirCollum_O_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 963
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cece993c8708cdb90800000000000000
+      internalID: -7215751246788301588
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenClose2_0: 8174992282927982503
+      AirCollum_O_0: 5827192208080020603
+      AirCollum_O_1: -7215751246788301588
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe2b2f6240c2840e59c7e8e0db81f365
+guid: 76195349d28e54277a1941f927a5817f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8360369579152422201
-    second: Wall_Column_0
+      213: 4875038874932923152
+    second: AirCollumWall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall_Column_0
+      name: AirCollumWall_0
       rect:
         serializedVersion: 2
-        x: 952
+        x: 979
         y: 0
-        width: 48
+        width: 21
         height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 935bc5c46dff50470800000000000000
-      internalID: 8360369579152422201
+      spriteID: 01bc896170e97a340800000000000000
+      internalID: 4875038874932923152
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wall_Column_0: 8360369579152422201
+      AirCollumWall_0: 4875038874932923152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
