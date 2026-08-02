@@ -422,7 +422,7 @@ MonoBehaviour:
   - {fileID: 1279539360}
   - {fileID: 1356137100}
   - {fileID: 2079687589}
-  launchSpeedAccelearion: 30
+  launchSpeedAcceleration: 30
 --- !u!58 &63723707
 CircleCollider2D:
   m_ObjectHideFlags: 0
