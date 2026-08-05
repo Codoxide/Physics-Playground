@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - PathPoint
   - Ground
+  - Magnet
   layers:
   - Default
   - TransparentFX
