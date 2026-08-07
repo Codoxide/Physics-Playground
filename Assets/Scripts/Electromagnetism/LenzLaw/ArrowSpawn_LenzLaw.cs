@@ -10,6 +10,7 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
     public TextMesh RightTxt;
 
     [Header("Arrow Settings")]
+    
     public GameObject arrowPrefab;
     public float removeRate = 0.2f;
     public float spacing = 1f;
@@ -25,7 +26,16 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
     private float spawnRate;
     private float spawnTimer;
     private Vector3 startPosition;
+    [Header("galvmeter")]
 
+    public GameObject needle;
+
+    public float minAngle = -120f;
+    public float maxAngle = 120f;
+    public float minSpeed = 0f;
+    public float maxSpeed = 5f;
+    public float smoothingFloat;
+    float targetAngle;
 
     void Start()
     {
@@ -43,6 +53,13 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
 
     void Update()
     {
+        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+
+        needle.transform.localRotation = Quaternion.Lerp(
+            needle.transform.localRotation,
+            targetRotation,
+            smoothingFloat * Time.deltaTime
+        );        
         // Pause hides all arrows and stops movement/spawning
         if (pause)
         {
@@ -143,6 +160,11 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
         Destroy(arrow, removeRate);
     }
 
+    public void SetSpeed(float speed)
+    {
+        float t = Mathf.InverseLerp(minSpeed, maxSpeed, speed);
+        targetAngle = Mathf.Lerp(minAngle, maxAngle, t);
+    }
 
     IEnumerator MoveArrow(GameObject arrow)
     {

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,20 +7,41 @@ public class SelectScript_LenzLaw : MonoBehaviour
 {
     public ArrowSpawn_LenzLaw arrowSpawn_LenzLawScript;
     public Transform magnetObj;
+
     public GameObject Outline_Mag;
     public float DelayTimeArrow = 2f;
 
     Vector3 unchangedPos;
+    private float lastX;
+    float timer;
+    float distance;
     // 0.27784, 0.19552
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lastX = magnetObj.position.x;
         unchangedPos = magnetObj.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float dx = magnetObj.position.x - lastX;
+        lastX = magnetObj.position.x;
+
+        distance += dx;
+        timer += Time.deltaTime;
+
+        if (timer >= 0.05f)
+        {
+            float speed = distance / timer;
+            arrowSpawn_LenzLawScript.SetSpeed(speed);
+            Debug.Log(speed);
+            distance = 0f;
+            timer = 0f;
+        }
+
+    
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);   
         if (hit.collider != null)
@@ -49,10 +71,11 @@ public class SelectScript_LenzLaw : MonoBehaviour
 
             arrowSpawn_LenzLawScript.pause = false;
             arrowSpawn_LenzLawScript.moveUp = unchangedPos.x < magnetObj.position.x;
+            
             unchangedPos = magnetObj.position;
-
             StartCoroutine(PauseArrowSpawn());
         }
+    
     }
     IEnumerator PauseArrowSpawn()
     {
