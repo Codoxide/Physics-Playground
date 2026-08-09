@@ -797,8 +797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -58.816273}
-  m_SizeDelta: {x: 1575.2056, y: 283.7052}
+  m_AnchoredPosition: {x: 0, y: -63.143753}
+  m_SizeDelta: {x: 1710.1475, y: 371.0353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &116734573
 MonoBehaviour:
@@ -827,13 +827,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '* Air resistance is negligible'
+  m_Text: '* Air resistance is negligible and frictional forces are ignored.'
 --- !u!222 &116734574
 CanvasRenderer:
   m_ObjectHideFlags: 0
