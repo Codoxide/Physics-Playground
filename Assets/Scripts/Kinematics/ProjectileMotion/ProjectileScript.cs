@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
+
+    public TrailRenderer trailRenderer;
+
     public GameObject X_ArrowHead;
     public GameObject Y_ArrowHead;
     public GameObject Result_ArrowHead;
@@ -29,6 +34,7 @@ public class ProjectileScript : MonoBehaviour
     public float initialVelocity_X;
     public float angle;
     public float finalVelocity_Y;
+
     public Vector2 velocity;
     Vector2 ProjectileMoveVector;
 
@@ -37,7 +43,7 @@ public class ProjectileScript : MonoBehaviour
     {
         SetArrowHeadColor();
         ResetPos();
-        DrawArrows();        
+        DrawArrows();     
     }
 
     void FixedUpdate()
@@ -84,6 +90,8 @@ public class ProjectileScript : MonoBehaviour
     {
         isPaused = true;  
         finalVelocity_Y = 0;  
+        trailRenderer.Clear();
+        trailRenderer.enabled = false;
         timerStart = 0;    
         transform.position = ResetPosTransform.position;
     }
@@ -147,6 +155,7 @@ public class ProjectileScript : MonoBehaviour
     }
 
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         IsGround = true;
@@ -154,11 +163,17 @@ public class ProjectileScript : MonoBehaviour
         {
             KillSwitch = true;
         }
+        else
+        {
+            trailRenderer.Clear();
+            trailRenderer.enabled = false;            
+        }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         IsGround = false;
         KillSwitch = false;
+        trailRenderer.enabled = true;
 
         
     }
