@@ -8,7 +8,6 @@ public class ProjectileScript : MonoBehaviour
     public GameObject Y_ArrowHead;
     public GameObject Result_ArrowHead;
 
-
     public GameObject X_Arrow;
     public GameObject Y_Arrow;
     public GameObject R_Arrow;
@@ -17,11 +16,9 @@ public class ProjectileScript : MonoBehaviour
     public Transform ResetPosTransform;
 
     public float ArrowSizer;
-    public float speed;
-    public float StartingVelocityX;
     public float GravityAcceleration = 9.81f;
 
-    bool IsGround = false;
+    public bool IsGround = false;
     bool KillSwitch = false;
     public bool isPaused = false;
 
@@ -30,7 +27,7 @@ public class ProjectileScript : MonoBehaviour
 
     public float displacement_X;
     public float initialVelocity_X;
-
+    public float angle;
     public float finalVelocity_Y;
     public Vector2 velocity;
     Vector2 ProjectileMoveVector;
@@ -40,102 +37,55 @@ public class ProjectileScript : MonoBehaviour
     {
         SetArrowHeadColor();
         ResetPos();
-        initialVelocity_X = StartingVelocityX;
+        DrawArrows();        
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(!isPaused)
-        {                
-            if(!KillSwitch)
-            {
-                if(IsGround)
-                {
-                    finalVelocity_Y = 0;
-                    timerStart = 0;
-                }
-                else
-                {
-                    timerStart += Time.deltaTime;
-                    finalVelocity_Y = timerStart * GravityAcceleration;
-                }              
+        if (isPaused || KillSwitch)
+            return;
 
+        if (IsGround)
+        {
+            finalVelocity_Y = 0f;
 
-                ProjectileMoveVector = new Vector2(initialVelocity_X, finalVelocity_Y);
-                transform.position += (Vector3)ProjectileMoveVector * speed * Time.deltaTime;            
-            }
-            // X velocity arrow
-            float lengthX = initialVelocity_X * ArrowSizer;
+            // Keep moving horizontally
+            ProjectileMoveVector = new Vector2(
+                initialVelocity_X,
+                0f
+            );
 
-            Vector3 startX = transform.transform.position;
-            Vector3 endX = startX + Vector3.right * lengthX;
+            transform.position +=
+                (Vector3)ProjectileMoveVector * Time.fixedDeltaTime;
 
-            LineRenderer lineX = X_Arrow.GetComponent<LineRenderer>();
-
-            lineX.SetPosition(0, startX);
-            lineX.SetPosition(1, endX);
-
-            X_ArrowHead.transform.position = endX;
-
-            // Y velocity arrow
-            float lengthY = finalVelocity_Y * ArrowSizer;
-
-            Vector3 startY = transform.position;
-            Vector3 endY = startY + Vector3.up * lengthY;
-
-            LineRenderer lineY = Y_Arrow.GetComponent<LineRenderer>();
-
-            lineY.SetPosition(0, startY);
-            lineY.SetPosition(1, endY);
-
-            Y_ArrowHead.transform.position = endY;
-            // Resultant
-            LineRenderer line = R_Arrow.GetComponent<LineRenderer>();
-            velocity = new Vector2(initialVelocity_X, finalVelocity_Y);
-
-            float length = velocity.magnitude * ArrowSizer;
-
-            Vector3 start = transform.position;
-            Vector3 end = start + (Vector3)velocity.normalized * length;
-
-            line.SetPosition(0, start);
-            line.SetPosition(1, end);
-
-            Result_ArrowHead.transform.position = end;
-
-            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-            Result_ArrowHead.transform.rotation = Quaternion.Euler(0, 0, angle-90);              
-            
+            return;
         }
 
-        
+        // Falling
+        finalVelocity_Y = timerStart * GravityAcceleration;
+
+        ProjectileMoveVector = new Vector2(
+            initialVelocity_X,
+            finalVelocity_Y
+        );
+
+        transform.position +=
+            (Vector3)ProjectileMoveVector * Time.fixedDeltaTime;
+
+        timerStart += Time.fixedDeltaTime;
+    }
+
+    void Update()
+    {
+        DrawArrows();
     }
 
     public void ResetPos()
     {
+        isPaused = true;  
+        finalVelocity_Y = 0;  
+        timerStart = 0;    
         transform.position = ResetPosTransform.position;
-    }
-
-    float FindHeight()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity);
-
-        if (hit.collider != null&&hit.collider.CompareTag("Ground"))
-        {
-            if((float)Math.Round(hit.distance, 2)-0.5f < 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return (float)Math.Round(hit.distance, 2)-0.5f;
-            }
-        }
-        else
-        {
-            return 0;
-        }           
     }
     
     void SetArrowHeadColor()
@@ -151,6 +101,52 @@ public class ProjectileScript : MonoBehaviour
 
     }
     
+    void DrawArrows()
+    {
+        // X velocity arrow
+        float lengthX = initialVelocity_X * ArrowSizer;
+
+        Vector3 startX = transform.transform.position;
+        Vector3 endX = startX + Vector3.right * lengthX;
+
+        LineRenderer lineX = X_Arrow.GetComponent<LineRenderer>();
+
+        lineX.SetPosition(0, startX);
+        lineX.SetPosition(1, endX);
+
+        X_ArrowHead.transform.position = endX;
+
+        // Y velocity arrow
+        float lengthY = finalVelocity_Y * ArrowSizer;
+
+        Vector3 startY = transform.position;
+        Vector3 endY = startY + Vector3.up * lengthY;
+
+        LineRenderer lineY = Y_Arrow.GetComponent<LineRenderer>();
+
+        lineY.SetPosition(0, startY);
+        lineY.SetPosition(1, endY);
+
+        Y_ArrowHead.transform.position = endY;
+        // Resultant
+        LineRenderer line = R_Arrow.GetComponent<LineRenderer>();
+        velocity = new Vector2(initialVelocity_X, finalVelocity_Y);
+
+        float length = velocity.magnitude * ArrowSizer;
+
+        Vector3 start = transform.position;
+        Vector3 end = start + (Vector3)velocity.normalized * length;
+
+        line.SetPosition(0, start);
+        line.SetPosition(1, end);
+
+        Result_ArrowHead.transform.position = end;
+
+        angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+        Result_ArrowHead.transform.rotation = Quaternion.Euler(0, 0, angle-90);                      
+    }
+
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         IsGround = true;
@@ -162,6 +158,8 @@ public class ProjectileScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         IsGround = false;
+        KillSwitch = false;
+
         
     }
     

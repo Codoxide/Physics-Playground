@@ -571,8 +571,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileMotion_GameUI
   platform: {fileID: 772284288}
+  resetPos: {fileID: 422607960}
   projectileScript: {fileID: 54161418}
   heightSlider: {fileID: 715210814}
+  TimeScaleSlider: {fileID: 1143879568}
+  LaunchSlider: {fileID: 113570643}
+  Start_PauseButtonTxt: {fileID: 2146058496}
+  TimescaleText: {fileID: 1154182977}
+  HeightText: {fileID: 204617254}
+  LaunchText: {fileID: 1010577533}
   timerTxt: {fileID: 827906042}
   xVelocity: {fileID: 2071730560}
   yVelocity: {fileID: 1668113165}
@@ -723,8 +730,8 @@ GameObject:
   - component: {fileID: 54161417}
   - component: {fileID: 54161416}
   - component: {fileID: 54161418}
-  - component: {fileID: 54161419}
   - component: {fileID: 54161420}
+  - component: {fileID: 54161421}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -802,7 +809,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 2.1199996, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.49999994, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2093566627}
@@ -823,22 +830,23 @@ MonoBehaviour:
   X_ArrowHead: {fileID: 2119251749}
   Y_ArrowHead: {fileID: 848966194}
   Result_ArrowHead: {fileID: 1688948084}
+  ParentArrow: {fileID: 0}
   X_Arrow: {fileID: 309357239}
   Y_Arrow: {fileID: 1140578998}
   R_Arrow: {fileID: 231600088}
   ResetPosTransform: {fileID: 422607960}
-  ArrowSizer: 0.1
-  speed: 0.2
-  StartingVelocityX: 20
+  ArrowSizer: 0.15
   GravityAcceleration: -9.81
-  isPaused: 0
+  IsGround: 1
+  isPaused: 1
   timerStart: 0
   displacement_X: 0
-  initialVelocity_X: 0
+  initialVelocity_X: 5
+  angle: 0
   finalVelocity_Y: 0
   velocity: {x: 0, y: 0}
---- !u!61 &54161419
-BoxCollider2D:
+--- !u!58 &54161420
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -871,28 +879,24 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.44051296}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.005, y: 0.247123}
-  m_EdgeRadius: 0
---- !u!58 &54161420
-CircleCollider2D:
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!50 &54161421
+Rigidbody2D:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54161415}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -900,25 +904,10 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &90616604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,8 +991,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rollercoaster_GameUI, Assembly-CSharp
+      - m_Target: {fileID: 41204149}
+        m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
         m_MethodName: ResetSim
         m_Mode: 1
         m_Arguments:
@@ -1193,15 +1182,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 652185193}
   m_Direction: 0
   m_MinValue: 3
-  m_MaxValue: 25
+  m_MaxValue: 15
   m_WholeNumbers: 1
-  m_Value: 25
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rollercoaster_GameUI, Assembly-CSharp
-        m_MethodName: MassSliderChange
+      - m_Target: {fileID: 41204149}
+        m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
+        m_MethodName: LaunchSpeedSliderChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2019,11 +2008,11 @@ Transform:
   m_GameObject: {fileID: 422607959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3648902, y: 0.5376823, z: 0}
-  m_LocalScale: {x: 0.1982237, y: 0.075572364, z: 1}
+  m_LocalPosition: {x: -2, y: 2.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 772284290}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &446659883
 GameObject:
@@ -2364,7 +2353,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2389,7 +2378,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.12, y: 1.47, z: -10}
+  m_LocalPosition: {x: 11.92, y: 2.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2959,16 +2948,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1422741047}
   m_HandleRect: {fileID: 2120251817}
   m_Direction: 0
-  m_MinValue: 5
-  m_MaxValue: 33
+  m_MinValue: 3
+  m_MaxValue: 12
   m_WholeNumbers: 1
-  m_Value: 33
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 41204149}
         m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
-        m_MethodName: ChangePlatformHeight
+        m_MethodName: PlatformHeightSliderChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3248,7 +3237,6 @@ GameObject:
   - component: {fileID: 772284290}
   - component: {fileID: 772284289}
   - component: {fileID: 772284291}
-  - component: {fileID: 772284292}
   m_Layer: 0
   m_Name: Height
   m_TagString: Untagged
@@ -3328,8 +3316,7 @@ Transform:
   m_LocalPosition: {x: -1.0796, y: -1.4374001, z: 0}
   m_LocalScale: {x: 2.5224028, y: 6.616174, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 422607960}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &772284291
@@ -3362,7 +3349,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3378,33 +3365,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &772284292
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772284288}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &787810571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,8 +3852,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rollercoaster_GameUI, Assembly-CSharp
+      - m_Target: {fileID: 41204149}
+        m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
         m_MethodName: StartSim
         m_Mode: 1
         m_Arguments:
@@ -4754,8 +4714,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rollercoaster_GameUI, Assembly-CSharp
+      - m_Target: {fileID: 41204149}
+        m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
         m_MethodName: TimescaleSliderChange
         m_Mode: 1
         m_Arguments:
@@ -7900,8 +7860,7 @@ GameObject:
   - component: {fileID: 2112135519}
   - component: {fileID: 2112135518}
   - component: {fileID: 2112135520}
-  - component: {fileID: 2112135521}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8029,33 +7988,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &2112135521
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112135516}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &2119251749
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,6 +8279,7 @@ SceneRoots:
   - {fileID: 41204148}
   - {fileID: 733845396}
   - {fileID: 54161417}
+  - {fileID: 422607960}
   - {fileID: 772284290}
   - {fileID: 2112135519}
   - {fileID: 848966195}

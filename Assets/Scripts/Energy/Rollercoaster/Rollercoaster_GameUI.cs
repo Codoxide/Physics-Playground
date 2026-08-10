@@ -17,6 +17,7 @@ public class Rollercoaster_GameUI : MonoBehaviour
     public Text CurrentHeightText;
     public Text CurrentSpeedText;
 
+
     public Text TotalEnergyText;
     public Text KineticEnergyText;
     public Text PotentialEnergyText;    
