@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-
+    [Header("Trail")]
     public TrailRenderer trailRenderer;
 
+    [Header("Velocity Arrows")]
     public GameObject X_ArrowHead;
     public GameObject Y_ArrowHead;
     public GameObject Result_ArrowHead;
@@ -17,35 +18,38 @@ public class ProjectileScript : MonoBehaviour
     public GameObject Y_Arrow;
     public GameObject R_Arrow;
 
-
+    [Header("Projectile Settings")]
     public Transform ResetPosTransform;
-
     public float ArrowSizer;
     public float GravityAcceleration = 9.81f;
 
+    [Header("Projectile State")]
     public bool IsGround = false;
-    bool KillSwitch = false;
     public bool isPaused = false;
 
+    bool KillSwitch = false;
+
+    [Header("Projectile Data")]
     public float timerStart;
-
-
     public float displacement_X;
     public float initialVelocity_X;
     public float angle;
     public float finalVelocity_Y;
 
     public Vector2 velocity;
+
     Vector2 ProjectileMoveVector;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // Initializes the projectile and velocity arrows.
     void Start()
     {
         SetArrowHeadColor();
         ResetPos();
-        DrawArrows();     
+        DrawArrows();
     }
 
+    // Moves the projectile using fixed physics intervals.
     void FixedUpdate()
     {
         if (isPaused || KillSwitch)
@@ -55,7 +59,7 @@ public class ProjectileScript : MonoBehaviour
         {
             finalVelocity_Y = 0f;
 
-            // Keep moving horizontally
+            // Continue horizontal motion after reaching the ground.
             ProjectileMoveVector = new Vector2(
                 initialVelocity_X,
                 0f
@@ -67,7 +71,6 @@ public class ProjectileScript : MonoBehaviour
             return;
         }
 
-        // Falling
         finalVelocity_Y = timerStart * GravityAcceleration;
 
         ProjectileMoveVector = new Vector2(
@@ -81,34 +84,44 @@ public class ProjectileScript : MonoBehaviour
         timerStart += Time.fixedDeltaTime;
     }
 
+    // Updates the velocity arrows.
     void Update()
     {
         DrawArrows();
     }
 
+    // Resets the projectile and clears its trail.
     public void ResetPos()
     {
-        isPaused = true;  
-        finalVelocity_Y = 0;  
+        isPaused = true;
+        finalVelocity_Y = 0;
+
         trailRenderer.Clear();
         trailRenderer.enabled = false;
-        timerStart = 0;    
+
+        timerStart = 0;
+
         transform.position = ResetPosTransform.position;
     }
-    
+
+    // Matches each arrowhead's colour to its LineRenderer.
     void SetArrowHeadColor()
     {
         LineRenderer lineX = X_Arrow.GetComponent<LineRenderer>();
         LineRenderer lineY = Y_Arrow.GetComponent<LineRenderer>();
         LineRenderer lineR = R_Arrow.GetComponent<LineRenderer>();
-        
-        
-        X_ArrowHead.transform.GetComponent<SpriteRenderer>().color = lineX.endColor;
-        Y_ArrowHead.transform.GetComponent<SpriteRenderer>().color = lineY.endColor;
-        Result_ArrowHead.transform.GetComponent<SpriteRenderer>().color = lineR.endColor;
 
+        X_ArrowHead.transform.GetComponent<SpriteRenderer>().color =
+            lineX.endColor;
+
+        Y_ArrowHead.transform.GetComponent<SpriteRenderer>().color =
+            lineY.endColor;
+
+        Result_ArrowHead.transform.GetComponent<SpriteRenderer>().color =
+            lineR.endColor;
     }
-    
+
+    // Draws the horizontal, vertical, and resultant velocity arrows.
     void DrawArrows()
     {
         // X velocity arrow
@@ -124,6 +137,7 @@ public class ProjectileScript : MonoBehaviour
 
         X_ArrowHead.transform.position = endX;
 
+
         // Y velocity arrow
         float lengthY = finalVelocity_Y * ArrowSizer;
 
@@ -136,9 +150,15 @@ public class ProjectileScript : MonoBehaviour
         lineY.SetPosition(1, endY);
 
         Y_ArrowHead.transform.position = endY;
-        // Resultant
+
+
+        // Resultant velocity arrow
         LineRenderer line = R_Arrow.GetComponent<LineRenderer>();
-        velocity = new Vector2(initialVelocity_X, finalVelocity_Y);
+
+        velocity = new Vector2(
+            initialVelocity_X,
+            finalVelocity_Y
+        );
 
         float length = velocity.magnitude * ArrowSizer;
 
@@ -150,32 +170,35 @@ public class ProjectileScript : MonoBehaviour
 
         Result_ArrowHead.transform.position = end;
 
-        angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-        Result_ArrowHead.transform.rotation = Quaternion.Euler(0, 0, angle-90);                      
+        angle =
+            Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+
+        Result_ArrowHead.transform.rotation =
+            Quaternion.Euler(0, 0, angle - 90);
     }
 
-
-
+    // Detects when the projectile enters a trigger.
     void OnTriggerEnter2D(Collider2D collision)
     {
         IsGround = true;
-        if(collision.gameObject.CompareTag("Ground"))
+
+        if (collision.gameObject.CompareTag("Ground"))
         {
             KillSwitch = true;
         }
         else
         {
             trailRenderer.Clear();
-            trailRenderer.enabled = false;            
+            trailRenderer.enabled = false;
         }
     }
+
+    // Detects when the projectile leaves a trigger.
     void OnTriggerExit2D(Collider2D collision)
     {
         IsGround = false;
         KillSwitch = false;
         trailRenderer.enabled = true;
-
-        
     }
-    
 }
+
