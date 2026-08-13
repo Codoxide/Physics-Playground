@@ -21,13 +21,18 @@ public class PulleySystem_Simple : MonoBehaviour
     public float Mass2_Kg;
 
     public float tension;
-    public  float acceleration;
+    public float acceleration;
+
+    public bool IsPaused = true;
+
     float velocity=0;
+    float StartYVal;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        StartYVal = MassA.transform.position.y;
         SetValues();
     }
 
@@ -74,10 +79,21 @@ public class PulleySystem_Simple : MonoBehaviour
     {
         tension = CalculateTensionForce();        
         acceleration = CalculateAcceleration();
-    }   
-    
+    }
+
+    public void ResetPulleySim()
+    {
+        MassA.transform.position = new Vector3(MassA.transform.position.x, StartYVal, MassA.transform.position.z);
+        MassB.transform.position = new Vector3(MassB.transform.position.x, StartYVal, MassB.transform.position.z);
+    }
+
     void MoveMasses()
     {
+        if(IsPaused)
+        {
+            return;
+        }
+        
         if(MassA.position.y < 1f-(MassA.localScale.y/2) && MassB.position.y < 1f-(MassB.localScale.y/2))
         {
             velocity += acceleration * Time.fixedDeltaTime;

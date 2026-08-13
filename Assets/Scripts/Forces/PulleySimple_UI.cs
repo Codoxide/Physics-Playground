@@ -43,6 +43,10 @@ public class PulleySimple_UI : MonoBehaviour
     {
         AcclerationText.text = Math.Abs(pulleySystem_Simple.acceleration).ToString("F1")+" m/s";
         TensionText.text = (pulleySystem_Simple.tension).ToString("F1")+" N";
+    }
 
+    public void ResetButton()
+    {
+        pulleySystem_Simple.ResetPulleySim();
     }
 }
