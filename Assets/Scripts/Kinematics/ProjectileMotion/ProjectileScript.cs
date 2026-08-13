@@ -32,9 +32,9 @@ public class ProjectileScript : MonoBehaviour
     [Header("Projectile Data")]
     public float timerStart;
     public float displacement_X;
-    public float initialVelocity_X;
+    public float Velocity_X;
     public float angle;
-    public float finalVelocity_Y;
+    public float Velocity_Y;
 
     public Vector2 velocity;
 
@@ -57,11 +57,11 @@ public class ProjectileScript : MonoBehaviour
 
         if (IsGround)
         {
-            finalVelocity_Y = 0f;
+            Velocity_Y = 0f;
 
             // Continue horizontal motion after reaching the ground.
             ProjectileMoveVector = new Vector2(
-                initialVelocity_X,
+                Velocity_X,
                 0f
             );
 
@@ -71,11 +71,11 @@ public class ProjectileScript : MonoBehaviour
             return;
         }
 
-        finalVelocity_Y = timerStart * GravityAcceleration;
+        Velocity_Y = timerStart * GravityAcceleration;
 
         ProjectileMoveVector = new Vector2(
-            initialVelocity_X,
-            finalVelocity_Y
+            Velocity_X,
+            Velocity_Y
         );
 
         transform.position +=
@@ -94,7 +94,7 @@ public class ProjectileScript : MonoBehaviour
     public void ResetPos()
     {
         isPaused = true;
-        finalVelocity_Y = 0;
+        Velocity_Y = 0;
 
         trailRenderer.Clear();
         trailRenderer.enabled = false;
@@ -125,7 +125,7 @@ public class ProjectileScript : MonoBehaviour
     void DrawArrows()
     {
         // X velocity arrow
-        float lengthX = initialVelocity_X * ArrowSizer;
+        float lengthX = Velocity_X * ArrowSizer;
 
         Vector3 startX = transform.transform.position;
         Vector3 endX = startX + Vector3.right * lengthX;
@@ -139,7 +139,7 @@ public class ProjectileScript : MonoBehaviour
 
 
         // Y velocity arrow
-        float lengthY = finalVelocity_Y * ArrowSizer;
+        float lengthY = Velocity_Y * ArrowSizer;
 
         Vector3 startY = transform.position;
         Vector3 endY = startY + Vector3.up * lengthY;
@@ -156,8 +156,8 @@ public class ProjectileScript : MonoBehaviour
         LineRenderer line = R_Arrow.GetComponent<LineRenderer>();
 
         velocity = new Vector2(
-            initialVelocity_X,
-            finalVelocity_Y
+            Velocity_X,
+            Velocity_Y
         );
 
         float length = velocity.magnitude * ArrowSizer;

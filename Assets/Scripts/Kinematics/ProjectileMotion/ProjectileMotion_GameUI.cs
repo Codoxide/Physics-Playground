@@ -56,10 +56,10 @@ public class ProjectileMotion_GameUI : MonoBehaviour
     void Update()
     {
         timerTxt.text = "Time: " + projectileScript.timerStart.ToString("F2") + "s";
-        xVelocity.text = projectileScript.initialVelocity_X.ToString("F1") + " m/s [→]";
-        yVelocity.text = (-1 * projectileScript.finalVelocity_Y).ToString("F1") + " m/s [↓]";
+        xVelocity.text = projectileScript.Velocity_X.ToString("F1") + " m/s [→]";
+        yVelocity.text = (-1 * projectileScript.Velocity_Y).ToString("F1") + " m/s [↓]";
         Resultant_Velocity.text = FullAngleName(-projectileScript.angle);
-        xDisplacement.text = (projectileScript.timerStart * projectileScript.initialVelocity_X).ToString("F1") + " m";
+        xDisplacement.text = (projectileScript.timerStart * projectileScript.Velocity_X).ToString("F1") + " m";
     }
 
     // Changes the platform height while keeping its bottom fixed.
@@ -155,7 +155,7 @@ public class ProjectileMotion_GameUI : MonoBehaviour
     {
         LaunchText.text = "Launch Speed: " + LaunchSlider.value + " m/s";
 
-        projectileScript.initialVelocity_X = LaunchSlider.value;
+        projectileScript.Velocity_X = LaunchSlider.value;
         projectileScript.ResetPos();
 
         Start_PauseButtonTxt.text =
