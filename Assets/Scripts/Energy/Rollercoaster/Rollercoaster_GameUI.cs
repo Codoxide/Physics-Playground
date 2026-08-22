@@ -98,8 +98,6 @@ public class Rollercoaster_GameUI : MonoBehaviour
     {
         rollercoaster_MovementScript.PauseState = !rollercoaster_MovementScript.PauseState; // Reverse bool
         Start_PauseButtonTxt.text = rollercoaster_MovementScript.PauseState ? "Start": "Pause";
-
-
     }
     public void ResetSim()
     {

@@ -24,6 +24,8 @@ public class PulleySystem_Simple : MonoBehaviour
     public float acceleration;
 
     public bool IsPaused = true;
+    public bool CanMove = true;
+
 
     float velocity=0;
     float StartYVal;
@@ -83,8 +85,10 @@ public class PulleySystem_Simple : MonoBehaviour
 
     public void ResetPulleySim()
     {
+        velocity = 0;
         MassA.transform.position = new Vector3(MassA.transform.position.x, StartYVal, MassA.transform.position.z);
         MassB.transform.position = new Vector3(MassB.transform.position.x, StartYVal, MassB.transform.position.z);
+
     }
 
     void MoveMasses()
@@ -99,7 +103,12 @@ public class PulleySystem_Simple : MonoBehaviour
             velocity += acceleration * Time.fixedDeltaTime;
 
             MassB.position += new Vector3(0, velocity) * Time.fixedDeltaTime;   
-            MassA.position += new Vector3(0, -velocity) * Time.fixedDeltaTime;             
+            MassA.position += new Vector3(0, -velocity) * Time.fixedDeltaTime;  
+            CanMove = true;                       
+        }
+        else
+        {
+            CanMove = false;
         }
     }
 
