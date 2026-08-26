@@ -7,6 +7,9 @@ public class Doppler_GameUI : MonoBehaviour
 {
     public Doppler_Source doppler_SourceScript; // Source object's script
 
+    public Doppler_WaveEmitter doppler_WaveEmitterScript; // Wave emitter script
+
+
     public Transform observerTransform; // Current source object's position
 
     public Transform sourceTransform; // Current source object's position
@@ -29,13 +32,16 @@ public class Doppler_GameUI : MonoBehaviour
 
     public Text Freq_Percieved_Text; 
 
+    public Text StartButtonText; 
+
+
     public float Max_PeriodTime = 0.2f;
     public float Max_Velocity = 10f;
+    bool DisplayFreq = false;
     float SpeedSound_Val;
     float Freq_Percieved_Val;
     float Source_Freq_Val;
     float Source_Vel_Val;
-    bool isPausedReset = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,7 +59,7 @@ public class Doppler_GameUI : MonoBehaviour
         Freq_Text.text = "Source Frequency: "+ Source_Freq_Val + "Hz"; // Keep updating the text
         Vel_Text.text = "Source Speed: "+Source_Vel_Val+" m/s"; //
         SpeedSound_Text.text = "Speed of Sound: "+SpeedSound_Val+" m/s"; // 
-        if(!isPausedReset){
+        if(DisplayFreq){
             if(observerTransform.position.x-sourceTransform.position.x > 0) // Object is approaching the observer
             {
                 // Doppler Effect Formula for source approaching observer 
@@ -81,24 +87,53 @@ public class Doppler_GameUI : MonoBehaviour
 
     public void StartButton()
     {
-        doppler_SourceScript.ChangeFreq(0.35f-Source_Freq_Slider.normalizedValue*Max_PeriodTime);        
-        doppler_SourceScript.Velocity_Source = Source_Velocity_Slider.normalizedValue*Max_Velocity;
-        SpeedSound_Val = Mathf.RoundToInt(SpeedSound_Slider.value);
-        Source_Freq_Val = Mathf.RoundToInt(Source_Freq_Slider.value);
-        Source_Vel_Val = Mathf.RoundToInt(Source_Velocity_Slider.value);
+        DisplayFreq = true;
+        doppler_SourceScript.ChangeFreq(
+            0.35f - Source_Freq_Slider.normalizedValue * Max_PeriodTime
+        );
 
-        ResetButton();
-        isPausedReset = false;
-        doppler_SourceScript.isPaused = false;
+        doppler_SourceScript.Velocity_Source =
+            Source_Velocity_Slider.normalizedValue * Max_Velocity;
+
+        bool shouldPause = !doppler_SourceScript.isPaused;
+
+        doppler_SourceScript.isPaused = shouldPause;
+
+        doppler_WaveEmitterScript.isPausedEmitting = shouldPause;
+        doppler_WaveEmitterScript.isPausedMoved = shouldPause;
+
+        GameObject[] waves = GameObject.FindGameObjectsWithTag("Wave");
+
+        foreach (GameObject wave in waves)
+        {
+            Doppler_WaveRing waveScript =
+                wave.GetComponent<Doppler_WaveRing>();
+
+            if (waveScript != null)
+            {
+                waveScript.isPaused = shouldPause;
+            }
+        }
+
+        StartButtonText.text = shouldPause ? "Start" : "Pause";
     }
 
     public void ResetButton()
     {
+        DisplayFreq = false;
         doppler_SourceScript.isPaused = true;
-        sourceTransform.position = source_Reset_Position.position;
-        isPausedReset = true;
 
-    }   
+        sourceTransform.position = source_Reset_Position.position;
+
+        doppler_WaveEmitterScript.time = doppler_WaveEmitterScript.PeriodTime;
+
+        doppler_WaveEmitterScript.isPausedMoved = true;
+        doppler_WaveEmitterScript.isPausedEmitting = true;
+        doppler_WaveEmitterScript.time = doppler_WaveEmitterScript.PeriodTime;
+        doppler_WaveEmitterScript.RemoveAllCurrentWaves();
+
+        StartButtonText.text = "Start";
+    }
 
 
     public void FreqSlideChange() // Performs this func everytime the freq slider is changed

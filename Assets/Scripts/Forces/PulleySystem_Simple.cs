@@ -6,10 +6,19 @@ public class PulleySystem_Simple : MonoBehaviour
     public LineRenderer MassA_LineRender;
     public LineRenderer MassB_LineRender;
 
+    public LineRenderer MassA_Gravity_LineRender;
+    public LineRenderer MassA_Tension_LineRender;
+    public LineRenderer MassB_Gravity_LineRender;
+    public LineRenderer MassB_Tension_LineRender;
 
     public Transform MassA;
     public Transform MassB;
     
+    public Transform MassA_Gravity_Arrowhead;
+    public Transform MassA_Tension_Arrowhead;
+    public Transform MassB_Gravity_Arrowhead;
+    public Transform MassB_Tension_Arrowhead;
+
     public Transform MassA_EndPoint;
     public Transform MassB_EndPoint;
     public Transform MassA_StartPoint;
@@ -22,6 +31,12 @@ public class PulleySystem_Simple : MonoBehaviour
 
     public float tension;
     public float acceleration;
+     // Arrow length limits
+    public float minArrowLength = 0.5f;
+    public float maxArrowLength = 3f;    
+
+    public float ArrowSizeScaler =2;
+    public float arrowGap = 0.2f;
 
     public bool IsPaused = true;
     public bool CanMove = true;
@@ -31,10 +46,14 @@ public class PulleySystem_Simple : MonoBehaviour
     float StartYVal;
 
 
+    void Awake()
+    {
+        StartYVal = MassA.transform.position.y;        
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartYVal = MassA.transform.position.y;
         SetValues();
     }
 
@@ -42,6 +61,7 @@ public class PulleySystem_Simple : MonoBehaviour
     void Update()
     {
         DrawLines();
+        DrawForceArrows();
     }
 
     void FixedUpdate()
@@ -90,7 +110,74 @@ public class PulleySystem_Simple : MonoBehaviour
         MassB.transform.position = new Vector3(MassB.transform.position.x, StartYVal, MassB.transform.position.z);
 
     }
+    void DrawForceArrows()
+    {
+        // Gravity force arrow — Mass A
+        float gravityForceMassA = GravityForce_Abs * Mass1_Kg;
 
+        float gravityArrowLength = gravityForceMassA * ArrowSizeScaler;
+
+        Vector3 gravityStartPoint = MassA.transform.position;
+        Vector3 gravityEndPoint =
+            gravityStartPoint + Vector3.down * (gravityArrowLength+arrowGap);
+
+        LineRenderer gravityLine =
+            MassA_Gravity_LineRender.GetComponent<LineRenderer>();
+
+        gravityLine.SetPosition(0, gravityStartPoint);
+        gravityLine.SetPosition(1, gravityEndPoint);
+
+        MassA_Gravity_Arrowhead.transform.position = gravityEndPoint;
+
+
+        // Tension force arrow — Mass A
+        float tensionArrowLength = ArrowSizeScaler * tension;
+
+        Vector3 tensionStartPoint = MassA.transform.position;
+        Vector3 tensionEndPoint =
+            tensionStartPoint + Vector3.up * (tensionArrowLength+arrowGap);
+
+        LineRenderer tensionLine =
+            MassA_Tension_LineRender.GetComponent<LineRenderer>();
+
+        tensionLine.SetPosition(0, tensionStartPoint);
+        tensionLine.SetPosition(1, tensionEndPoint);
+
+        MassA_Tension_Arrowhead.transform.position = tensionEndPoint;
+
+        // Gravity force arrow — Mass B
+        float gravityForceMassB = GravityForce_Abs * Mass2_Kg;
+
+        float gravityArrowLength2 = gravityForceMassB * ArrowSizeScaler;
+
+        Vector3 gravityStartPoint2 = MassB.transform.position;
+        Vector3 gravityEndPoint2 =
+            gravityStartPoint2 + Vector3.down * (gravityArrowLength2+arrowGap);
+
+        LineRenderer gravityLine2 =
+            MassB_Gravity_LineRender.GetComponent<LineRenderer>();
+
+        gravityLine2.SetPosition(0, gravityStartPoint2);
+        gravityLine2.SetPosition(1, gravityEndPoint2);
+
+        MassB_Gravity_Arrowhead.transform.position = gravityEndPoint2;
+
+
+        // Tension force arrow — Mass A
+        float tensionArrowLength2 = ArrowSizeScaler * tension;
+
+        Vector3 tensionStartPoint2 = MassB.transform.position;
+        Vector3 tensionEndPoint2 =
+            tensionStartPoint2 + Vector3.up * (tensionArrowLength2+arrowGap);
+
+        LineRenderer tensionLine2 =
+            MassB_Tension_LineRender.GetComponent<LineRenderer>();
+
+        tensionLine2.SetPosition(0, tensionStartPoint2);
+        tensionLine2.SetPosition(1, tensionEndPoint2);
+
+        MassB_Tension_Arrowhead.transform.position = tensionEndPoint2;        
+    }
     void MoveMasses()
     {
         if(IsPaused)
@@ -102,14 +189,15 @@ public class PulleySystem_Simple : MonoBehaviour
         {
             velocity += acceleration * Time.fixedDeltaTime;
 
-            MassB.position += new Vector3(0, velocity) * Time.fixedDeltaTime;   
-            MassA.position += new Vector3(0, -velocity) * Time.fixedDeltaTime;  
+            MassB.position += new Vector3(0, -velocity) * Time.fixedDeltaTime;   
+            MassA.position += new Vector3(0, velocity) * Time.fixedDeltaTime;  
             CanMove = true;                       
         }
         else
         {
             CanMove = false;
         }
+        
     }
 
 }

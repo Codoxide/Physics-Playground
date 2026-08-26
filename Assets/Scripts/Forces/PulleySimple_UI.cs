@@ -72,7 +72,11 @@ public class PulleySimple_UI : MonoBehaviour
         MassB.transform.localScale = new Vector3(scaleClamped, scaleClamped, 1);        
         pulleySystem_Simple.Mass2_Kg = MassB_Slide.value * 0.5f;
         MassB_Text.text = "Mass B: "+MassB_Slide.value * 0.5f+" kg";
+        StartTimer = 0;
         pulleySystem_Simple.SetValues();
+        pulleySystem_Simple.IsPaused = true;
+        ButtonStartText.text = pulleySystem_Simple.IsPaused ? "Start": "Pause";        
+        ResetButton();
         UpdateUI();
     } 
 
@@ -82,14 +86,18 @@ public class PulleySimple_UI : MonoBehaviour
         MassA.transform.localScale = new Vector3(scaleClamped, scaleClamped, 1);
         pulleySystem_Simple.Mass1_Kg = MassA_Slide.value * 0.5f;
         MassA_Text.text = "Mass A: "+MassA_Slide.value * 0.5f+" kg";
+        StartTimer = 0;
         pulleySystem_Simple.SetValues();
+        pulleySystem_Simple.IsPaused = true;
+        ButtonStartText.text = pulleySystem_Simple.IsPaused ? "Start": "Pause";        
+        ResetButton();
         UpdateUI();
     }
 
     void UpdateUI()
     {
         AcclerationText.text = Math.Abs(pulleySystem_Simple.acceleration).ToString("F1")+" m/s";
-        TensionText.text = pulleySystem_Simple.tension.ToString("F1")+" N";
+        TensionText.text = pulleySystem_Simple.tension.ToString("F1")+" N [↑]";
         KeepTimer();    
     }
 

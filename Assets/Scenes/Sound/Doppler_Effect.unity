@@ -3321,6 +3321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Doppler_GameUI
   doppler_SourceScript: {fileID: 1764388753}
+  doppler_WaveEmitterScript: {fileID: 997750769}
   observerTransform: {fileID: 283490006}
   sourceTransform: {fileID: 1764388752}
   source_Reset_Position: {fileID: 737100881}
@@ -3333,6 +3334,7 @@ MonoBehaviour:
   Vel_Text: {fileID: 1843055566}
   SpeedSound_Text: {fileID: 766163092}
   Freq_Percieved_Text: {fileID: 1989992254}
+  StartButtonText: {fileID: 1102038375}
   Max_PeriodTime: 0.2
   Max_Velocity: 6
 --- !u!1 &802464754
@@ -3735,6 +3737,8 @@ MonoBehaviour:
   WavePrefab: {fileID: 6080555554295001730, guid: 888bf36dddb964fc9becae89af38bdca, type: 3}
   PeriodTime: 0.2
   isPausedEmitting: 1
+  isPausedMoved: 0
+  time: 0
 --- !u!1 &1010919966
 GameObject:
   m_ObjectHideFlags: 0
@@ -6439,7 +6443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 51.4}
-  m_SizeDelta: {x: 2984.0537, y: 283.7052}
+  m_SizeDelta: {x: 3772.4043, y: 283.7052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989992254
 MonoBehaviour:

@@ -5,7 +5,9 @@ public class Doppler_WaveEmitter : MonoBehaviour
     public GameObject WavePrefab; // Copy of the wave ring
     public float PeriodTime = 0.1f; // The rate of the waves being emitted
     public bool isPausedEmitting = true;
-    float time = 0;
+    public bool isPausedMoved= false;
+
+    public float time = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,24 +19,24 @@ public class Doppler_WaveEmitter : MonoBehaviour
     {
         if(!isPausedEmitting)
         {
-            if(time <= PeriodTime) // Check if it is time to create a new wave 
+            
+            time += Time.deltaTime;
+
+            if (time >= PeriodTime)
             {
-                time += Time.deltaTime; // Keeps waiting
+                Instantiate(
+                    WavePrefab,
+                    new Vector3(transform.position.x, transform.position.y, 0f),
+                    transform.rotation
+                );
+
+                time = 0f;
             }
-            else
-            {
-                Instantiate(WavePrefab, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation); // Creates the wave at a specfic postion and rotation
-                time = 0; // Reset timer
-                
-            }
-        }
-        else
-        {
-            time = PeriodTime;
-            RemoveAllCurrentWaves();
         }
 
     }
+
+    
 
     public void RemoveAllCurrentWaves()
     {
@@ -45,4 +47,15 @@ public class Doppler_WaveEmitter : MonoBehaviour
             Destroy(wave);
         }        
     }
+    public void ChangePauseAllCurrentWaves()
+    {
+        GameObject[] waves = GameObject.FindGameObjectsWithTag("Wave");
+
+        foreach (GameObject wave in waves)
+        {
+            wave.transform.GetComponent<Doppler_WaveRing>().isPaused = isPausedMoved;
+        }        
+        isPausedMoved = !isPausedMoved;
+
+    }    
 }

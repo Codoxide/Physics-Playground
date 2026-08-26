@@ -10,6 +10,7 @@ public class Doppler_WaveRing : MonoBehaviour
     public float maxRadius = 5f;
 
     private LineRenderer lr;
+    public bool isPaused = false;
 
     void Awake()
     {
@@ -22,19 +23,22 @@ public class Doppler_WaveRing : MonoBehaviour
 
     void Update()
     {
-        radius += expansionSpeed * Time.deltaTime;
+        if(!isPaused)
+        {
+            radius += expansionSpeed * Time.deltaTime;
 
-        DrawCircle();
-
+            DrawCircle();                     
+        }
         if(radius >= maxRadius)
-            Destroy(gameObject);
+            Destroy(gameObject);           
+
     }
 
     void DrawCircle()
     {
         float angleStep = 360f / segments;
 
-        for(int i = 0; i < segments; i++)
+        for (int i = 0; i < segments; i++)
         {
             float angle = Mathf.Deg2Rad * angleStep * i;
 
