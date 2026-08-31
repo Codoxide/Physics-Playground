@@ -52,6 +52,8 @@ public class PulleyComplex_UI : MonoBehaviour
         Friction_Text.text = "Coefficent of Friction: "+CoEfficient;
         pulleySystemScript.FrictionCoEfficient = CoEfficient;
         pulleySystemScript.SetValues();
+        ResetButton();
+        UpdateUI();
     }
 
 
@@ -64,7 +66,8 @@ public class PulleyComplex_UI : MonoBehaviour
         StartTimer = 0;
         pulleySystemScript.SetValues();
         pulleySystemScript.IsPaused = true;
-        ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";        
+        ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";     
+        ResetButton();
         UpdateUI();
     } 
 
@@ -79,7 +82,7 @@ public class PulleyComplex_UI : MonoBehaviour
         pulleySystemScript.IsPaused = true;
         ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";        
         ReSizeMassA();
-        // ResetButton();
+        ResetButton();
         UpdateUI();
     }
 
