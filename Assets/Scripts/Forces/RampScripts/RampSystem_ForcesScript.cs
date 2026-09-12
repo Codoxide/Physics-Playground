@@ -50,25 +50,31 @@ public class RampSystem_ForcesScript : MonoBehaviour
 
     public void DrawAngle()
     {
-        lineRend.positionCount = line_segments + 1;
+        lineRend.positionCount = line_segments;
 
-        lineRend.SetPosition(0, StartPoint.position);
+        Vector3 start = StartPoint.position;
+        Vector3 end = EndPoint.position;
 
-        float totalAngle = RampTransform.transform.eulerAngles.z;
+        // Controls how much the line curves
+        Vector3 middle = ((start + end) / 2f);
 
-        for (int i = 1; i < line_segments; i++)
+        // Push the middle point perpendicular to the line
+        Vector3 direction = (end - start).normalized;
+        Vector3 perpendicular = new Vector3(-direction.y, direction.x, 0);
+
+        middle += perpendicular * radius;
+
+        for (int i = 0; i < line_segments; i++)
         {
-            float currentAngle = totalAngle * i / line_segments;
+            float t = (float)i / (line_segments - 1);
 
-            float x = Mathf.Cos(currentAngle * Mathf.Deg2Rad) * radius;
-            float y = Mathf.Sin(currentAngle * Mathf.Deg2Rad) * radius;
-
-            Vector3 point = StartPoint.position + new Vector3(x, y, 0);
+            Vector3 point =
+                Mathf.Pow(1 - t, 2) * start +
+                2 * (1 - t) * t * middle +
+                Mathf.Pow(t, 2) * end;
 
             lineRend.SetPosition(i, point);
         }
-
-        lineRend.SetPosition(line_segments, EndPoint.position);
     }
 
     void MoveMasses(float acceleration)
