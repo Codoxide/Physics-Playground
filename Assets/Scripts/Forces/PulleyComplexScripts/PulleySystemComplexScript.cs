@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PulleySystemComplexScript : MonoBehaviour
 {
+    public Toggle FBD_Toggle;
 
     public LineRenderer MassA_LineRender;
     public LineRenderer MassB_LineRender;
@@ -72,7 +74,10 @@ public class PulleySystemComplexScript : MonoBehaviour
     void Update()
     {
         DrawLines();
-        DrawForceArrows();
+        if(FBD_Toggle.isOn)
+        {
+            DrawForceArrows();            
+        }
     }
     void FixedUpdate()
     {

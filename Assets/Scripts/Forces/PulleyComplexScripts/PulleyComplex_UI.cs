@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PulleyComplex_UI : MonoBehaviour
 {
+    public Toggle FBD_Toggle;
+
     public Slider MassA_Slide;
     public Slider MassB_Slide;
     public Slider Friction_Slide;
@@ -16,20 +18,21 @@ public class PulleyComplex_UI : MonoBehaviour
     public Text AcclerationText;
     public Text TensionText;
 
-
     public PulleySystemComplexScript pulleySystemScript;
 
     public GameObject MassA;
     public GameObject MassB;
 
+    public GameObject PauseText;
+
     public GameObject ExplainPanelObj;
     public GameObject Scroll_Content;
 
+    public GameObject ArrowGroup;
 
     public float MaxMass_Size;
     public float MinMass_Size;
 
-    float StartTimer = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,6 +46,12 @@ public class PulleyComplex_UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void ToggleChange()
+    {
+        ArrowGroup.SetActive(FBD_Toggle.isOn);
     }
 
 
@@ -52,6 +61,8 @@ public class PulleyComplex_UI : MonoBehaviour
         Friction_Text.text = "Coefficent of Friction: "+CoEfficient;
         pulleySystemScript.FrictionCoEfficient = CoEfficient;
         pulleySystemScript.SetValues();
+        pulleySystemScript.IsPaused = true;
+        ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";             
         ResetButton();
         UpdateUI();
     }
@@ -63,7 +74,6 @@ public class PulleyComplex_UI : MonoBehaviour
         MassB.transform.localScale = new Vector3(scaleClamped, scaleClamped, 1);        
         pulleySystemScript.Mass2_Kg = MassB_Slide.value;
         MassB_Text.text = "Mass B: "+MassB_Slide.value+" kg";
-        StartTimer = 0;
         pulleySystemScript.SetValues();
         pulleySystemScript.IsPaused = true;
         ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";     
@@ -77,7 +87,6 @@ public class PulleyComplex_UI : MonoBehaviour
         MassA.transform.localScale = new Vector3(scaleClamped, scaleClamped, 1);
         pulleySystemScript.Mass1_Kg = MassA_Slide.value ;
         MassA_Text.text = "Mass A: "+MassA_Slide.value +" kg";
-        StartTimer = 0;
         pulleySystemScript.SetValues();
         pulleySystemScript.IsPaused = true;
         ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";        
@@ -95,12 +104,12 @@ public class PulleyComplex_UI : MonoBehaviour
     public void StartSim()
     {
         pulleySystemScript.IsPaused = !pulleySystemScript.IsPaused; // Reverse bool
+        PauseText.SetActive(pulleySystemScript.IsPaused);        
         ButtonStartText.text = pulleySystemScript.IsPaused ? "Start": "Pause";
     }    
 
     public void ResetButton()
     {
-        StartTimer = 0;
         pulleySystemScript.ResetPulleySim();
     }
     public void OpenExplainPanel()
