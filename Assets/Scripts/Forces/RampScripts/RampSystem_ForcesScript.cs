@@ -18,6 +18,7 @@ public class RampSystem_ForcesScript : MonoBehaviour
     float velocity;
     public float acceleration;
     public float Friction_Force;
+    public float Normal_Force;
 
     public float radius = 0.25f;
 
@@ -48,13 +49,19 @@ public class RampSystem_ForcesScript : MonoBehaviour
     {
         acceleration = CalculateAcceleration();
         Friction_Force = CalculateFriction();
+        Normal_Force = CalculateNormalForce();
+    }
+
+    float CalculateNormalForce()
+    {
+        float ForceGravity_Mass = MassWeight*GravityForce_Abs;
+        float forceOfNormal = ForceGravity_Mass*Mathf.Cos(RampTransform.eulerAngles.z*Mathf.Deg2Rad); 
+        return forceOfNormal;       
     }
 
     float CalculateFriction()
     {
-        float ForceGravity_Mass = MassWeight*GravityForce_Abs;
-        float forceOfNormal = ForceGravity_Mass*Mathf.Cos(RampTransform.eulerAngles.z*Mathf.Deg2Rad);
-        return forceOfNormal*CoefficentFriction;
+        return CalculateNormalForce()*CoefficentFriction;
     }
     float CalculateAcceleration()
     {

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class RampUI : MonoBehaviour
 {
+    public Toggle FBD_Toggle;
+
     public Slider MassA_Slide;
     public Slider Ramp_Slide;
     public Slider Friction_Slide;
@@ -15,6 +17,8 @@ public class RampUI : MonoBehaviour
     
     public Text AcclerationStatText;
     public Text FrictionStatText;  
+    public Text NormalStatText;
+
     public Text ButtonStartText;
 
     public TextMesh AngleText;
@@ -43,17 +47,23 @@ public class RampUI : MonoBehaviour
     public GameObject NormalArrow;    
 
     public GameObject FrictionArrowHead;
-    public GameObject FrictionArrow;       
+    public GameObject FrictionArrow; 
+
+    public GameObject ArrowGroup;             
 
     public RampSystem_ForcesScript rampSystem_ForcesScript;
 
     public float ArrowSizer;
+
+    public GameObject ExplainPanelObj;  
+    public GameObject Scroll_Content;  
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Friction_SlideChange();
+        MassA_SlideChange();
         RampAngle_SlideChange();
         DrawArrows();
     }
@@ -75,7 +85,10 @@ public class RampUI : MonoBehaviour
         UpdateUI();
     }
 
-
+    public void ToggleChange()
+    {
+        ArrowGroup.SetActive(FBD_Toggle.isOn);
+    }
     public void RampAngle_SlideChange()
     {
         float RampAngle = Ramp_Slide.value;
@@ -113,6 +126,8 @@ public class RampUI : MonoBehaviour
     {
         AcclerationStatText.text = Mathf.Abs(rampSystem_ForcesScript.acceleration).ToString("F1")+" m/s²";
         FrictionStatText.text = rampSystem_ForcesScript.Friction_Force.ToString("F1")+" N";
+        NormalStatText.text = rampSystem_ForcesScript.Normal_Force.ToString("F1")+" N";
+
                 
     }    
     public void StartButton()
@@ -136,12 +151,6 @@ public class RampUI : MonoBehaviour
             PausedTEXT.SetActive(false);
         }
     }
-    void ReSizeMassA()
-    {
-        float NewY = 2.6f+(Mass.transform.localScale.y/2);
-        Mass.transform.localPosition = new Vector3(Mass.transform.position.x,NewY,Mass.transform.position.z);
-    }    
-
     // Draws the horizontal, vertical, and resultant velocity arrows.
     void DrawArrows()
     {
@@ -231,4 +240,20 @@ public class RampUI : MonoBehaviour
         FrictionArrowHead.transform.rotation =
             Quaternion.Euler(0, 0, -90+Ramp_Slide.value); 
     }    
+    public void OpenExplainPanel()
+    {
+        rampSystem_ForcesScript.IsPaused=true;
+        rampSystem_ForcesScript.CanMove=false;
+        ExplainPanelObj.SetActive(true);
+    }
+
+    public void CloseExplainPanel()
+    {
+        rampSystem_ForcesScript.IsPaused=false;
+        rampSystem_ForcesScript.CanMove=true;     
+        UpdateStartButton();           
+        ExplainPanelObj.SetActive(false);
+        Scroll_Content.transform.position = new Vector3(0,0,0);
+    }     
 }
+
