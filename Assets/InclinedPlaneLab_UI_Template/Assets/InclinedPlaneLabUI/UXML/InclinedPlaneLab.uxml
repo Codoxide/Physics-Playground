@@ -1,0 +1,90 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="styles" src="../USS/InclinedPlaneLab.uss" />
+    <ui:VisualElement name="root" class="lab-root">
+        <ui:VisualElement class="topbar">
+            <ui:Label text="Inclined Plane Lab" class="brand"/>
+            <ui:VisualElement class="top-actions">
+                <ui:Button name="runButton" text="▶  Start" class="btn btn-primary"/>
+                <ui:Button name="pauseButton" text="Ⅱ  Pause" class="btn btn-blue"/>
+                <ui:Button name="resetButton" text="Reset" class="btn btn-dark"/>
+                <ui:Label text="● RUNNING" class="status status-running"/>
+                <ui:Label text="t = 1.50 s" class="time-label"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement class="workspace">
+            <ui:VisualElement class="control-panel panel">
+                <ui:Label text="SETUP" class="section-label"/>
+                <ui:VisualElement class="field">
+                    <ui:Label text="Mass" class="field-label"/>
+                    <ui:Label text="1.5   kg" class="value-box"/>
+                </ui:VisualElement>
+                <ui:Slider value="0.42" low-value="0" high-value="1" class="slider"/>
+                <ui:VisualElement class="ticks"><ui:Label text="1"/><ui:Label text="50"/></ui:VisualElement>
+
+                <ui:VisualElement class="field">
+                    <ui:Label text="Ramp angle" class="field-label"/>
+                    <ui:Label text="15   deg" class="value-box"/>
+                </ui:VisualElement>
+                <ui:Slider value="0.3" low-value="0" high-value="1" class="slider"/>
+                <ui:VisualElement class="ticks"><ui:Label text="0"/><ui:Label text="60"/></ui:VisualElement>
+
+                <ui:VisualElement class="field">
+                    <ui:Label text="Coefficient of friction" class="field-label"/>
+                    <ui:Label text="0.10" class="value-box"/>
+                </ui:VisualElement>
+                <ui:Slider value="0.1" low-value="0" high-value="1" class="slider"/>
+                <ui:VisualElement class="ticks"><ui:Label text="0.00"/><ui:Label text="1.00"/></ui:VisualElement>
+
+                <ui:Label text="DISPLAY" class="section-label display-label"/>
+                <ui:Toggle text="Free body diagram" value="true" class="check"/>
+                <ui:Toggle text="Velocity vector" value="true" class="check"/>
+                <ui:Toggle text="Gravitational components" value="false" class="check"/>
+
+                <ui:Button text="Exit simulation" class="exit-btn"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="simulation panel">
+                <ui:VisualElement class="sim-canvas">
+                    <ui:Label text="PAUSED" class="pause-pill"/>
+                    <ui:VisualElement class="ramp">
+                        <ui:Label text="15°" class="angle-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="mass-block"/>
+                    <ui:Label text="Fₙ" class="force force-normal"/>
+                    <ui:Label text="Ff" class="force force-friction"/>
+                    <ui:Label text="Fg" class="force force-gravity"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="legend">
+                    <ui:Label text="■ Fg gravity"/>
+                    <ui:Label text="■ Fn normal"/>
+                    <ui:Label text="■ Fr friction"/>
+                    <ui:Label text="■ v velocity"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="readout panel">
+                <ui:Label text="MOTION" class="section-label"/>
+                <ui:VisualElement class="metric"><ui:Label text="Acceleration"/><ui:Label text="1.59 m/s²" class="metric-value"/></ui:VisualElement>
+                <ui:VisualElement class="metric"><ui:Label text="Velocity"/><ui:Label text="2.38 m/s" class="metric-value"/></ui:VisualElement>
+                <ui:VisualElement class="metric"><ui:Label text="Distance"/><ui:Label text="1.79 m" class="metric-value"/></ui:VisualElement>
+
+                <ui:Label text="FORCES" class="section-label force-title"/>
+                <ui:VisualElement class="metric"><ui:Label text="Fg weight"/><ui:Label text="147.2 N" class="metric-value"/></ui:VisualElement>
+                <ui:VisualElement class="metric"><ui:Label text="Fn normal"/><ui:Label text="142.2 N" class="metric-value"/></ui:VisualElement>
+                <ui:VisualElement class="metric"><ui:Label text="Fr friction"/><ui:Label text="14.2 N" class="metric-value"/></ui:VisualElement>
+                <ui:VisualElement class="metric"><ui:Label text="Gravity along ramp"/><ui:Label text="38.1 N" class="metric-value"/></ui:VisualElement>
+
+                <ui:VisualElement class="net-force">
+                    <ui:Label text="Net force"/>
+                    <ui:Label text="23.9 N" class="net-force-value"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement class="bottom-row">
+            <ui:Button text="How this works" class="btn btn-outline"/>
+            <ui:Label text="Arrows are drawn from the block's centre of mass and scaled with force magnitude." class="hint"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

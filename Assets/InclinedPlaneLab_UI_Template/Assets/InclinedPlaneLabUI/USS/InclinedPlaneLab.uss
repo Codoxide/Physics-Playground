@@ -1,0 +1,218 @@
+
+.lab-root {
+    flex-grow: 1;
+    background-color: #151515;
+    color: #dedbd4;
+    padding: 16px;
+    font-size: 13px;
+}
+.topbar {
+    height: 58px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: #f2efe8;
+}
+.top-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.btn {
+    height: 30px;
+    border-radius: 5px;
+    border-width: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    -unity-font-style: bold;
+}
+.btn-primary { background-color: #e6a21b; color: #151515; }
+.btn-blue { background-color: #5c9df5; color: #0b111a; }
+.btn-dark { background-color: #232831; color: #d8dbe0; }
+.btn-outline {
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #343942;
+    color: #b8bcc4;
+}
+.status {
+    font-size: 10px;
+    -unity-font-style: bold;
+    border-radius: 10px;
+    padding: 4px 7px;
+}
+.status-running { background-color: #162e24; color: #71d59c; }
+.time-label { color: #8e929a; font-size: 11px; }
+
+.workspace {
+    flex-grow: 1;
+    flex-direction: row;
+    gap: 10px;
+}
+.panel {
+    background-color: #0f141c;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #262d38;
+}
+.control-panel {
+    width: 27%;
+    min-width: 245px;
+    padding: 13px;
+}
+.simulation {
+    flex-grow: 1;
+    min-width: 420px;
+    padding: 12px;
+}
+.readout {
+    width: 24%;
+    min-width: 220px;
+    padding: 13px;
+}
+.section-label {
+    color: #9ea4ad;
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+.field-label { color: #c4c7cd; font-size: 11px; }
+.value-box {
+    background-color: #1b212b;
+    border-radius: 3px;
+    padding: 4px 7px;
+    color: #e4e6e9;
+    font-size: 10px;
+}
+.slider {
+    margin-top: 3px;
+    height: 18px;
+}
+.ticks {
+    flex-direction: row;
+    justify-content: space-between;
+    color: #5f6570;
+    font-size: 8px;
+}
+.display-label { margin-top: 17px; }
+.check {
+    margin-bottom: 5px;
+    color: #bfc3ca;
+    font-size: 10px;
+}
+.exit-btn {
+    margin-top: 18px;
+    height: 27px;
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #2b313b;
+    color: #8e949d;
+}
+.sim-canvas {
+    flex-grow: 1;
+    min-height: 300px;
+    background-color: #131a27;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+.pause-pill {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-color: #e6a21b;
+    color: #171717;
+    border-radius: 18px;
+    padding: 10px 16px;
+    -unity-font-style: bold;
+}
+.ramp {
+    position: absolute;
+    left: 18%;
+    right: 8%;
+    top: 67%;
+    height: 5px;
+    background-color: #9aa1af;
+    rotate: -15deg;
+}
+.angle-label {
+    position: absolute;
+    left: 3%;
+    top: 8px;
+    color: #858c99;
+    font-size: 10px;
+}
+.mass-block {
+    position: absolute;
+    left: 58%;
+    top: 53%;
+    width: 25px;
+    height: 25px;
+    background-color: #8d96a6;
+    rotate: -15deg;
+    border-radius: 2px;
+}
+.force {
+    position: absolute;
+    font-size: 11px;
+    -unity-font-style: bold;
+}
+.force-normal { left: 62%; top: 40%; color: #6fd2e7; }
+.force-friction { left: 54%; top: 49%; color: #f2a22d; }
+.force-gravity { left: 61%; top: 72%; color: #9a70d0; }
+
+.legend {
+    height: 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: #a9adb5;
+    font-size: 9px;
+}
+.metric {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    color: #aeb2ba;
+    font-size: 10px;
+}
+.metric-value { color: #e5e6e8; }
+.force-title { margin-top: 13px; }
+.net-force {
+    margin-top: 10px;
+    background-color: #1a202a;
+    border-radius: 4px;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #b9bdc5;
+}
+.net-force-value {
+    color: #f1eee7;
+    font-size: 15px;
+    -unity-font-style: bold;
+}
+.bottom-row {
+    height: 44px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.hint {
+    color: #777d86;
+    font-size: 9px;
+    max-width: 55%;
+}
