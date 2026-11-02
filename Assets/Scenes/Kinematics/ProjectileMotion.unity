@@ -596,9 +596,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
-        m_MethodName: ExitOutOfSimulation
+      - m_Target: {fileID: 41204149}
+        m_TargetAssemblyTypeName: ProjectileMotion_GameUI, Assembly-CSharp
+        m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -769,9 +769,9 @@ MonoBehaviour:
   isPaused: 1
   timerStart: 0
   displacement_X: 0
-  initialVelocity_X: 5
+  Velocity_X: 0
   angle: 0
-  finalVelocity_Y: 0
+  Velocity_Y: 0
   velocity: {x: 0, y: 0}
 --- !u!58 &54161420
 CircleCollider2D:

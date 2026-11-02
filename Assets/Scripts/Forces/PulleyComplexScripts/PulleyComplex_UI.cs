@@ -1,5 +1,6 @@
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PulleyComplex_UI : MonoBehaviour
 {
@@ -128,4 +129,8 @@ public class PulleyComplex_UI : MonoBehaviour
         float NewY = 2.6f+(MassA.transform.localScale.y/2);
         MassA.transform.localPosition = new Vector3(MassA.transform.position.x,NewY,MassA.transform.position.z);
     }
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }       
 }

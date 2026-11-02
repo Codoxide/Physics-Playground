@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LenzLaw_GameUI : MonoBehaviour
 {
@@ -15,4 +16,8 @@ public class LenzLaw_GameUI : MonoBehaviour
         ExplainPanel.SetActive(false);
         Scroll_Content.transform.position = new Vector3(0,0,0);
     }  
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

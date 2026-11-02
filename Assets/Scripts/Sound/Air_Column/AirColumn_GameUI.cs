@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AirColumn_GameUI : MonoBehaviour
@@ -150,5 +151,8 @@ public class AirColumn_GameUI : MonoBehaviour
         Scroll_Content.transform.position = new Vector3(0,0,0);
         panelExplain.SetActive(false);
     }
-
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }   
 }

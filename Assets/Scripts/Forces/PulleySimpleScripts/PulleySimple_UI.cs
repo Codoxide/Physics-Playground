@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PulleySimple_UI : MonoBehaviour
@@ -17,7 +18,6 @@ public class PulleySimple_UI : MonoBehaviour
     public Text AcclerationText;
     public Text TensionText;
 
-    public Text Timer_Text;
 
     public PulleySystem_Simple pulleySystem_Simple;
 
@@ -37,25 +37,8 @@ public class PulleySimple_UI : MonoBehaviour
     void Start()
     {
         ButtonStartText.text = pulleySystem_Simple.IsPaused ? "Start": "Pause";
-        Timer_Text.text = "Time: " + StartTimer.ToString("F2") + "s";
         MassA_SlideChange();
         MassB_SlideChange();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        KeepTimer();
-    }
-
-    void KeepTimer()
-    {
-        if(!pulleySystem_Simple.IsPaused && pulleySystem_Simple.CanMove)
-        {
-            Timer_Text.text = "Time: " + StartTimer.ToString("F2") + "s";
-            StartTimer += Time.deltaTime;               
-        }
-         
     }
 
     public void TimeScale_SlideChange()
@@ -98,7 +81,6 @@ public class PulleySimple_UI : MonoBehaviour
     {
         AcclerationText.text = Math.Abs(pulleySystem_Simple.acceleration).ToString("F1")+" m/s";
         TensionText.text = pulleySystem_Simple.tension.ToString("F1")+" N [↑]";
-        KeepTimer();    
     }
 
     public void StartSim()
@@ -121,5 +103,9 @@ public class PulleySimple_UI : MonoBehaviour
     {
         ExplainPanelObj.SetActive(false);
         Scroll_Content.transform.position = new Vector3(0,0,0);
+    }       
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
     }       
 }

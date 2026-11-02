@@ -36,7 +36,6 @@ public class SelectScript_LenzLaw : MonoBehaviour
         {
             float speed = distance / timer;
             arrowSpawn_LenzLawScript.SetSpeed(speed);
-            Debug.Log(speed);
             distance = 0f;
             timer = 0f;
         }

@@ -1,6 +1,7 @@
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RampUI : MonoBehaviour
@@ -255,5 +256,9 @@ public class RampUI : MonoBehaviour
         ExplainPanelObj.SetActive(false);
         Scroll_Content.transform.position = new Vector3(0,0,0);
     }     
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }       
 }
 

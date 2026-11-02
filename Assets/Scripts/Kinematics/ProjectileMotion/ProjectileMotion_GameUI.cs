@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ProjectileMotion_GameUI : MonoBehaviour
@@ -174,5 +175,9 @@ public class ProjectileMotion_GameUI : MonoBehaviour
         ExplainPanelObj.SetActive(false);
         Scroll_Content.transform.position = new Vector3(0, 0, 0);
     }
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }       
 }
 

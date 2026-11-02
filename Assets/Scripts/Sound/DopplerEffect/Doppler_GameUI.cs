@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Doppler_GameUI : MonoBehaviour
@@ -161,10 +162,6 @@ public class Doppler_GameUI : MonoBehaviour
         ResetButton();
     }    
 
-    public void ExitOutOfSimulation()
-    {
-        
-    }
 
     public void OpenPanel()
     {
@@ -177,5 +174,9 @@ public class Doppler_GameUI : MonoBehaviour
         ResetButton();
         panelExplain.SetActive(false);
     }
+    public void ExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }       
 }
 

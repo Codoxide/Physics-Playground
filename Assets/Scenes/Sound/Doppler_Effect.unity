@@ -2195,7 +2195,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.759434, g: 0.84322655, b: 1, a: 1}
+  m_BackGroundColor: {r: 0.5803922, g: 0.7254902, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4961,7 +4961,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775538789}
         m_TargetAssemblyTypeName: Doppler_GameUI, Assembly-CSharp
-        m_MethodName: ExitOutOfSimulation
+        m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

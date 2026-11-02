@@ -6,7 +6,31 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu/MainMenu.unity
+    guid: 49b9de61e356b4172af51d1a405e8187
+  - enabled: 1
+    path: Assets/Scenes/Sound/Air_columns.unity
+    guid: bb4cfb8e0b8a845009a13453a7616dba
+  - enabled: 1
     path: Assets/Scenes/Sound/Doppler_Effect.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Energy/Energy_Rollercoaster.unity
+    guid: b76c060ae02a24a78a5f4ca4b0fa1e97
+  - enabled: 1
+    path: Assets/Scenes/Kinematics/ProjectileMotion.unity
+    guid: 0d8268b2789804d38a3c9349bbc52ddd
+  - enabled: 1
+    path: Assets/Scenes/Forces/Pulleys_Complex.unity
+    guid: 4bf1e3a992f1f43e28edf547694a8d33
+  - enabled: 1
+    path: Assets/Scenes/Forces/Pulleys_Simple.unity
+    guid: 137717732b0284ddf8d18acf812185a2
+  - enabled: 1
+    path: Assets/Scenes/Forces/Forces_Ramp.unity
+    guid: 791e743da90214dffa7d2db093e1dece
+  - enabled: 1
+    path: Assets/Scenes/Electromagnetism/LenzLaw.unity
+    guid: 6eb4ee299fd844ef4ad02cedd6128229
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
