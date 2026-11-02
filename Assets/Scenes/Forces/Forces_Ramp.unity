@@ -5377,7 +5377,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Coefficent of Friction: 0.55'
+  m_Text: 'Coefficient of Friction: 0.55'
 --- !u!222 &1154182978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7289,7 +7289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Magnitude of Accleration:'
+  m_Text: 'Magnitude of Acceleration:'
 --- !u!222 &1702162742
 CanvasRenderer:
   m_ObjectHideFlags: 0
