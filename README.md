@@ -20,15 +20,11 @@
 
 ## Preview
 
-| Main Menu | Explanation Panel |
-|:---:|:---:|
-| ![Main Menu](screenshots/menu.png) | ![Explanation Panel](screenshots/explanation.png) |
-
 | Lenz's Law | Rollercoaster | Inclined Planes | Table Pulley |
 |:---:|:---:|:---:|:---:|
-| ![Lenz's Law](screenshots/lenzs-law.png) | ![Rollercoaster](screenshots/rollercoaster.png) | ![Inclined Planes](screenshots/inclined-planes.png) | ![Table Pulley](screenshots/table-pulley.png) |
+| ![Lenz's Law](Assets/Screenshots/shot_20261101_130047.png) | ![Rollercoaster](Assets/Screenshots/shot_20261101_215808.png) | ![Inclined Planes](Assets/Screenshots/shot_20261101_130243.png) | ![Table Pulley](Assets/Screenshots/shot_20261101_130454.png) |
 | **Atwood Pulley** | **Projectile Motion** | **Air Columns** | **Doppler Effect** |
-| ![Atwood Pulley](screenshots/atwood-pulley.png) | ![Projectile Motion](screenshots/projectile-motion.png) | ![Air Columns](screenshots/air-columns.png) | ![Doppler Effect](screenshots/doppler-effect.png) |
+| ![Atwood Pulley](Assets/Screenshots/shot_20261101_130552.png) | ![Projectile Motion](Assets/Screenshots/shot_20261101_130617.png) | ![Air Columns](Assets/Screenshots/shot_20261101_130659.png) | ![Doppler Effect](Assets/Screenshots/shot_20261101_130817.png) |
 
 ## Features
 
