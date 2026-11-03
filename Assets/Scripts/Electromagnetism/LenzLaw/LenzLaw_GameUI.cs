@@ -26,10 +26,10 @@ public class LenzLaw_GameUI : MonoBehaviour
     public void CloseExplainPanel()
     {
         ExplainPanel.SetActive(false);
-        Scroll_Content.transform.position = new Vector3(0,0,0);
+        Scroll_Content.transform.position = new Vector3(Scroll_Content.transform.position.x,0,Scroll_Content.transform.position.z);
     }  
     public void ExitButton()
-    {
+    {        
         SceneManager.LoadScene(0);
     }
 }

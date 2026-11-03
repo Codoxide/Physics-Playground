@@ -252,7 +252,7 @@ public class RampUI : MonoBehaviour
         rampSystem_ForcesScript.CanMove=true;     
         UpdateStartButton();           
         ExplainPanelObj.SetActive(false);
-        Scroll_Content.transform.position = new Vector3(0,0,0);
+        Scroll_Content.transform.position = new Vector3(Scroll_Content.transform.position.x,0,Scroll_Content.transform.position.z);
     }     
     public void ExitButton()
     {

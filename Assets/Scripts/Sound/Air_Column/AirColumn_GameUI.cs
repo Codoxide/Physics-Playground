@@ -147,7 +147,7 @@ public class AirColumn_GameUI : MonoBehaviour
     }
     public void ClosePanel()
     {
-        Scroll_Content.transform.position = new Vector3(0,0,0);
+        Scroll_Content.transform.position = new Vector3(Scroll_Content.transform.position.x,0,Scroll_Content.transform.position.z);
         panelExplain.SetActive(false);
     }
     public void ExitButton()
