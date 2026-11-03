@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #14161A;
+  overflow: hidden;
+}
+#unity-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#unity-canvas {
+  display: block;
+  width: min(100vw, calc(100vh * 1600 / 820));
+  height: auto;
+  aspect-ratio: 1600 / 820;
+  background: #14161A;
+}
+#unity-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#unity-bar {
+  width: 240px;
+  height: 8px;
+  border-radius: 4px;
+  background: #2B313A;
+  overflow: hidden;
+}
+#unity-fill {
+  width: 0;
+  height: 100%;
+  background: #FFB454;
+}
+#unity-canvas:focus,
+#unity-canvas:focus-visible {
+  outline: none;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Playground</title>
+   <link rel="icon" href="TemplateData/icon-512.png">
+   <link rel="icon" href="TemplateData/icon-512.png">  
+  <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+<body>
+  <div id="unity-container">
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="unity-loading">
+      <div id="unity-bar"><div id="unity-fill"></div></div>
+    </div>
+  </div>
+
+  <script src="Build/Good Build.loader.js"></script>
+  <script>
+    var config = {
+      dataUrl: "Build/Good Build.data.unityweb",
+      frameworkUrl: "Build/Good Build.framework.js.unityweb",
+      codeUrl: "Build/Good Build.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Codoxide",
+      productName: "Physics Playground",
+      productVersion: "1.0",
+    };
+
+    var fill = document.querySelector("#unity-fill");
+    var loading = document.querySelector("#unity-loading");
+
+    createUnityInstance(document.querySelector("#unity-canvas"), config, function (p) {
+      fill.style.width = (p * 100) + "%";
+    }).then(function () {
+      loading.style.display = "none";
+    }).catch(function (e) {
+      console.error(e);
+    });
+  </script>
+</body>
+</html>
