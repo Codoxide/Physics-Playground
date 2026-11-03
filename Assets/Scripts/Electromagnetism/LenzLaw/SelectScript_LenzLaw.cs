@@ -1,7 +1,5 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SelectScript_LenzLaw : MonoBehaviour
 {

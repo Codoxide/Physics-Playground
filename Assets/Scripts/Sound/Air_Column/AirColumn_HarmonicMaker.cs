@@ -1,10 +1,4 @@
-using System;
-using System.Linq;
-using Mono.Cecil.Cil;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public enum AirColumnType
 {

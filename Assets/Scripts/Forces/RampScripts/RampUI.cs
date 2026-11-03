@@ -1,5 +1,3 @@
-using Unity.Burst.Intrinsics;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

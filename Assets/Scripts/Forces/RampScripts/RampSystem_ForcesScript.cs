@@ -1,5 +1,4 @@
-using Unity.Mathematics;
-using UnityEditor;
+
 using UnityEngine;
 
 public class RampSystem_ForcesScript : MonoBehaviour

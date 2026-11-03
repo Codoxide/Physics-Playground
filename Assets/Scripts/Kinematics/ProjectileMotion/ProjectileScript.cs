@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour

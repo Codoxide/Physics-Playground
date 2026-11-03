@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using UnityEditor.Build;
-using UnityEditor.Media;
 using UnityEngine;
 
 public class Rollercoaster_Movement : MonoBehaviour
