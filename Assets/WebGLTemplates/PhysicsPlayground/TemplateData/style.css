@@ -36,3 +36,7 @@ html, body {
   height: 100%;
   background: #FFB454;
 }
+#unity-canvas:focus,
+#unity-canvas:focus-visible {
+  outline: none;
+}

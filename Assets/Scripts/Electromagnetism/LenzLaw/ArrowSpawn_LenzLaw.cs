@@ -10,7 +10,7 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
     public TextMesh RightTxt;
 
     [Header("Arrow Settings")]
-    
+    public bool IsMagnetFlipped = false;
     public GameObject arrowPrefab;
     public float removeRate = 0.2f;
     public float spacing = 1f;
@@ -53,7 +53,7 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
 
     void Update()
     {
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+        Quaternion targetRotation = Quaternion.Euler(0, 0, IsMagnetFlipped ? -targetAngle:targetAngle);
 
         needle.transform.localRotation = Quaternion.Lerp(
             needle.transform.localRotation,
@@ -105,34 +105,69 @@ public class ArrowSpawn_LenzLaw : MonoBehaviour
 
     void SetDirection()
     {
-        if (!moveUp)
+        if(!IsMagnetFlipped)
         {
-            transform.localPosition = new Vector3(
-                startPosition.x,
-                Mathf.Abs(startPosition.y),
-                startPosition.z
-            );
-            
-            moveSpeed = -Mathf.Abs(moveSpeed);
-            spacing = -Mathf.Abs(spacing);
-            ForceArrow.transform.rotation = Quaternion.Euler(0,0,90);
-            LeftTxt.text = "S";
-            RightTxt.text = "N";
+            if (!moveUp)
+            {
+                transform.localPosition = new Vector3(
+                    startPosition.x,
+                    Mathf.Abs(startPosition.y),
+                    startPosition.z
+                );
+                
+                moveSpeed = -Mathf.Abs(moveSpeed);
+                spacing = -Mathf.Abs(spacing);
+                ForceArrow.transform.rotation = Quaternion.Euler(0,0,90);
+                LeftTxt.text = "S";
+                RightTxt.text = "N";
+            }
+            else
+            {
+                transform.localPosition = new Vector3(
+                    startPosition.x,
+                    -Mathf.Abs(startPosition.y),
+                    startPosition.z
+                );
+
+                moveSpeed = Mathf.Abs(moveSpeed);
+                spacing = Mathf.Abs(spacing);
+                ForceArrow.transform.rotation = Quaternion.Euler(0,0,-90);
+                LeftTxt.text = "N";
+                RightTxt.text = "S";       
+            }            
         }
         else
         {
-            transform.localPosition = new Vector3(
-                startPosition.x,
-                -Mathf.Abs(startPosition.y),
-                startPosition.z
-            );
+           if (moveUp)
+            {
+                transform.localPosition = new Vector3(
+                    startPosition.x,
+                    Mathf.Abs(startPosition.y),
+                    startPosition.z
+                );
+                
+                moveSpeed = -Mathf.Abs(moveSpeed);
+                spacing = -Mathf.Abs(spacing);
+                ForceArrow.transform.rotation = Quaternion.Euler(0,0,-90);
+                LeftTxt.text = "S";
+                RightTxt.text = "N";
+            }
+            else
+            {
+                transform.localPosition = new Vector3(
+                    startPosition.x,
+                    -Mathf.Abs(startPosition.y),
+                    startPosition.z
+                );
 
-            moveSpeed = Mathf.Abs(moveSpeed);
-            spacing = Mathf.Abs(spacing);
-            ForceArrow.transform.rotation = Quaternion.Euler(0,0,-90);
-            LeftTxt.text = "N";
-            RightTxt.text = "S";       
+                moveSpeed = Mathf.Abs(moveSpeed);
+                spacing = Mathf.Abs(spacing);
+                ForceArrow.transform.rotation = Quaternion.Euler(0,0,90);
+                LeftTxt.text = "N";
+                RightTxt.text = "S";       
+            }             
         }
+
     }
 
 

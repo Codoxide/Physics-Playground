@@ -8,7 +8,7 @@ public class SelectScript_LenzLaw : MonoBehaviour
 
     public GameObject Outline_Mag;
     public float DelayTimeArrow = 2f;
-
+    
     Vector3 unchangedPos;
     private float lastX;
     float timer;
