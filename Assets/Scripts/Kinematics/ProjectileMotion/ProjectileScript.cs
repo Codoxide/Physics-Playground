@@ -167,7 +167,7 @@ public class ProjectileScript : MonoBehaviour
         Result_ArrowHead.transform.position = end;
 
         angle =
-            Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+            Mathf.Atan2(Mathf.Round(velocity.y*10)/10, Mathf.Round(velocity.x*10)/10) * Mathf.Rad2Deg;
 
         Result_ArrowHead.transform.rotation =
             Quaternion.Euler(0, 0, angle - 90);

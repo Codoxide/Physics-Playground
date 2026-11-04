@@ -128,14 +128,14 @@ public class ProjectileMotion_GameUI : MonoBehaviour
         {
             return projectileScript.velocity.magnitude.ToString("F1")
                 + " m/s ["
-                + (-projectileScript.angle).ToString("F1")
+                + (Mathf.Abs(projectileScript.angle)).ToString("F1")
                 + "° S of E]";
         }
         else
         {
             return projectileScript.velocity.magnitude.ToString("F1")
                 + " m/s ["
-                + (-projectileScript.angle).ToString("F1")
+                + (90-Mathf.Abs(projectileScript.angle)).ToString("F1")
                 + "° E of S]";
         }
     }
