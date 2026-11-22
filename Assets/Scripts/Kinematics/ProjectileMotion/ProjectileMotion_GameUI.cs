@@ -54,7 +54,7 @@ public class ProjectileMotion_GameUI : MonoBehaviour
     // Updates the projectile information displayed on the UI.
     void Update()
     {
-        timerTxt.text = "Time: " + projectileScript.timerStart.ToString("F2") + "s";
+        timerTxt.text = "Time: " + projectileScript.timerStart.ToString("F1") + "s";
         xVelocity.text = projectileScript.Velocity_X.ToString("F1") + " m/s [→]";
         yVelocity.text = (-1 * projectileScript.Velocity_Y).ToString("F1") + " m/s [↓]";
         Resultant_Velocity.text = FullAngleName(-projectileScript.angle);

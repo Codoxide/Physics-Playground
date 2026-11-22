@@ -5805,7 +5805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Accleration:'
+  m_Text: 'Acceleration:'
 --- !u!222 &1702162742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6755,7 +6755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: 2.5 m/s
+  m_Text: "2.5 m/s\xB2"
 --- !u!1 &2076829754
 GameObject:
   m_ObjectHideFlags: 0

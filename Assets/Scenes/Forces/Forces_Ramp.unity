@@ -2104,7 +2104,7 @@ MonoBehaviour:
   lineRend: {fileID: 1109449680}
   line_segments: 25
   CoefficentFriction: 0.11
-  IsPaused: 0
+  IsPaused: 1
   CanMove: 1
 --- !u!1 &309914959
 GameObject:
@@ -9161,7 +9161,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: 'Start
+
+'
 --- !u!222 &2146058497
 CanvasRenderer:
   m_ObjectHideFlags: 0

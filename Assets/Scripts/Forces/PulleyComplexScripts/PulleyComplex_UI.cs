@@ -97,7 +97,7 @@ public class PulleyComplex_UI : MonoBehaviour
 
     void UpdateUI()
     {
-        AcclerationText.text = Mathf.Abs(pulleySystemScript.acceleration).ToString("F1")+" m/s";
+        AcclerationText.text = Mathf.Abs(pulleySystemScript.acceleration).ToString("F1")+" m/s²";
         TensionText.text = pulleySystemScript.tension.ToString("F1")+" N";
     }
 
